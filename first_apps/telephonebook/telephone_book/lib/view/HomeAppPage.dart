@@ -32,7 +32,7 @@ class _HomeAppPageState extends State<HomeAppPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Contatos"),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.orange,
         centerTitle: true,
         actions: <Widget>[
           PopupMenuButton<OrderOptions>(
@@ -56,7 +56,7 @@ class _HomeAppPageState extends State<HomeAppPage> {
           _showContactPage();
         },
         child: Icon(Icons.add),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.orange,
       ),
       body: ListView.builder(
           padding: EdgeInsets.all(10.0),
@@ -78,6 +78,7 @@ class _HomeAppPageState extends State<HomeAppPage> {
               Container(
                 width: 80.0,
                 height: 80.0,
+
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
@@ -88,6 +89,8 @@ class _HomeAppPageState extends State<HomeAppPage> {
                   ),
                 ),
               ),
+          Expanded(
+            child:
               Padding(
                 padding: EdgeInsets.only(left: 10.0),
                 child: Column(
@@ -105,7 +108,7 @@ class _HomeAppPageState extends State<HomeAppPage> {
                     )
                   ],
                 ),
-              )
+              ))
             ],
           ),
         ),
@@ -132,7 +135,7 @@ class _HomeAppPageState extends State<HomeAppPage> {
                       padding: EdgeInsets.all(10.0),
                       child: FlatButton(
                         child: Text("Ligar",
-                          style: TextStyle(color: Colors.red, fontSize: 20.0),
+                          style: TextStyle(color: Colors.orange, fontSize: 20.0),
                         ),
                         onPressed: (){
                           launch("tel:${contacts[index].phone}");
@@ -144,7 +147,7 @@ class _HomeAppPageState extends State<HomeAppPage> {
                       padding: EdgeInsets.all(10.0),
                       child: FlatButton(
                         child: Text("Editar",
-                          style: TextStyle(color: Colors.red, fontSize: 20.0),
+                          style: TextStyle(color: Colors.orange, fontSize: 20.0),
                         ),
                         onPressed: (){
                           Navigator.pop(context);
@@ -156,7 +159,7 @@ class _HomeAppPageState extends State<HomeAppPage> {
                       padding: EdgeInsets.all(10.0),
                       child: FlatButton(
                         child: Text("Excluir",
-                          style: TextStyle(color: Colors.red, fontSize: 20.0),
+                          style: TextStyle(color: Colors.orange, fontSize: 20.0),
                         ),
                         onPressed: (){
                           helper.deleteContact(contacts[index].id);

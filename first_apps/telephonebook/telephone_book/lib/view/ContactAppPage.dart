@@ -49,7 +49,7 @@ class _ContactPageState extends State<ContactPage> {
       onWillPop: _requestPop,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.orange,
           title: Text(_editedContact.name ?? "Novo Contato"),
           centerTitle: true,
         ),
@@ -62,7 +62,7 @@ class _ContactPageState extends State<ContactPage> {
             }
           },
           child: Icon(Icons.save),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.orange,
         ),
         body: SingleChildScrollView(
           padding: EdgeInsets.all(10.0),
