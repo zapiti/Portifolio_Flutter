@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
 import 'package:permission_handler/permission_handler.dart';
@@ -40,7 +41,8 @@ class _VoiceHomeState extends State<VoiceHome> {
   bool _isListening = false;
   FlutterTts flutterTts = new FlutterTts();
   String resultText = "";
-
+  static const platform = const MethodChannel('buildflutter.com/platform');
+  int _counter = 0;
   speak(String text) async {
     await flutterTts.speak(text);
   }
@@ -50,7 +52,24 @@ class _VoiceHomeState extends State<VoiceHome> {
     super.initState();
 
     initSpeechRecognizer();
+
+    Future<Null> _callNativeMethod() async {
+      int result = 0;
+      try {
+        result = await platform.invokeMethod('getResult');
+
+
+      } on PlatformException catch (e) {
+        result = 0;
+      }
+      print(result);
+      setState(() {
+        _counter = result;
+      });
+    }
+    _callNativeMethod();
   }
+
 
   void initSpeechRecognizer() {
 
@@ -67,6 +86,7 @@ class _VoiceHomeState extends State<VoiceHome> {
     _speechRecognition.setRecognitionResultHandler(
       (String speech) => setState(() => resultText = speech),
     );
+
 
     _speechRecognition.setRecognitionCompleteHandler(
       () => setState(() => _isListening = false),
