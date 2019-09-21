@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_text_to_speech/flutter_text_to_speech.dart';
-import 'package:flutter_tts/flutter_tts.dart';
+
+import 'package:native_code_flutter/component/youtube_example.dart';
 import 'package:native_code_flutter/speech_recognition.dart';
 import 'package:native_code_flutter/utils.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -46,7 +47,6 @@ class _VoiceHomeState extends State<VoiceHome> {
   SpeechRecognition _speechRecognition;
   bool _isAvailable = false;
   bool _isListening = false;
-  FlutterTts flutterTts = new FlutterTts();
   String resultText = "";
   bool _enableButton = false;
   bool _tempChart = true;
@@ -210,6 +210,8 @@ class _VoiceHomeState extends State<VoiceHome> {
       _scrollToBottom();
       _addLineChart();
       _scrollToBottom();
+      _addYoutube();
+      _scrollToBottom();
     }
   }
 
@@ -232,6 +234,15 @@ class _VoiceHomeState extends State<VoiceHome> {
       });
     });
   }
+
+  void _addYoutube() {
+    Future.delayed(const Duration(milliseconds: 500), () {
+      setState(() {
+        _chatElement.add(Questions(type: TypeQuestion.YOUTUBE));
+      });
+    });
+  }
+
 
   void _addPieChart() {
     Future.delayed(const Duration(milliseconds: 500), () {
@@ -325,6 +336,10 @@ class _VoiceHomeState extends State<VoiceHome> {
                         case TypeQuestion.BARCHART:
                         case TypeQuestion.PIECHART:
                           return getchart(_chatElement[Index].type);
+
+                        case TypeQuestion.YOUTUBE:
+                          return YoutubeView.getYoutube();
+
                         default:
                           return null;
                       }
