@@ -1,0 +1,1 @@
+{"isEntrypoint":true,"deps":["flutter_web|lib/material.dart","myportfolio|lib/profile_page.dart"],"parts":[],"conditionalDeps":[],"sdkDeps":[],"hasMain":true}
