@@ -19,28 +19,31 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    final email = TextFormField(
-      keyboardType: TextInputType.emailAddress,
-      autofocus: true,
-      
-      decoration: InputDecoration(
-        hintText: 'Email',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-      ),
-    );
+    final email = Container(
+                                       height: 50,
+                                       width: 500,
+                                       child: TextField(
+                                         decoration: InputDecoration(
+                                           border: OutlineInputBorder(
+                                               borderRadius: BorderRadius.all(
+                                                   Radius.circular(10))),
+                                           labelText: "Endereço",
+                                         ),
+                                       ),
+                                     )
+;
 
-    final password = TextFormField(
-      autofocus: false,
-      initialValue: '',
-      obscureText: true,
+    final password = Container(
+      margin:EdgeInsets.only(right: 20,left: 20),
+      child:TextField(
+      maxLines: 1,
       decoration: InputDecoration(
-        hintText: 'Senha',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-      ),
-    );
+          hintText: "Senha", border: OutlineInputBorder(), labelText: "Senha"),
+    ));
 
     final loginButton = Container(
-      width: MediaQuery.of(context).size.width / 2.5,
+       margin:EdgeInsets.only(right: 20,left: 20),
+       width: MediaQuery.of(context).size.width ,
       child: RaisedButton(
         onPressed: () {
           Navigator.push(
@@ -48,9 +51,9 @@ class _LoginState extends State<Login> {
             MaterialPageRoute(builder: (context) => HomeScreen()),
           );
         },
-        padding: EdgeInsets.all(12),
+        padding: EdgeInsets.all(20),
         color: ColorConstants.orange,
-        child: Text('Logar',
+        child: Text('Entrar',
             style: TextStyle(
                 fontSize: 16,
                 color: Colors.white,
@@ -60,7 +63,7 @@ class _LoginState extends State<Login> {
 
     final forgotLabel = FlatButton(
       child: Text(
-        'Esqueci a senha?',
+        'Lembrar senha',
         style: TextStyle(color: Colors.black54),
       ),
       onPressed: () {},
@@ -83,66 +86,71 @@ class _LoginState extends State<Login> {
               ),
             ],
           ),
-
-         Align(
-            alignment: Alignment.centerRight,
-            child: Card(
-              margin:  EdgeInsets.only(right: 100.0),
-              elevation: 2.0,
+          Center(
               child: Container(
-                padding: EdgeInsets.all(50),
-                width: MediaQuery.of(context).size.width / 3,
-                height: MediaQuery.of(context).size.height / 1.5,
-                child: Column(
-                  children: <Widget>[
+            height: heightLoginContainer(context),
+            width: widthLoginContainer(context),
+            child: Card(
+                elevation: 2.0,
                 
-                    Center(child: CircleAvatar(
-                      radius: 50,
-                      backgroundImage: NetworkImage('https://assets1.ignimgs.com/thumbs/userUploaded/2019/5/29/drstone-1559174341319.jpg')
-                      ),
-                      ),
-                   SizedBox(height: 8.0),
-                    Center(
-                        child: Text(
-                      "Doctor stone",
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )),
-                    SizedBox(height: 20.0),
-                    email,
-                    SizedBox(height: 8.0),
-                    password,
-                    SizedBox(height: 24.0),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Checkbox(
-                              value: isChecked,
-                              onChanged: (value) {
-                                setState(() {
-                                  isChecked = value;
-                                });
-                              },
-                            ),
-                            Text("Lembrar Me")
-                          ],
-                        ),
-                        forgotLabel,
-                      ],
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      width: widthLoginSpace(context),
+                      color: Colors.white,
                     ),
-                    SizedBox(height: 18.0),
-                    loginButton,
+
+                 
+              
+                    Expanded(
+                    
+                      child:    Container(
+                      margin: EdgeInsets.all(20),
+                      child: Column(
+                        
+                        children: <Widget>[
+                          Center(
+                            child: CircleAvatar(
+                                radius: 50,
+                                backgroundImage: NetworkImage(
+                                    'https://assets1.ignimgs.com/thumbs/userUploaded/2019/5/29/drstone-1559174341319.jpg')),
+                          ),
+                          SizedBox(height: 8.0),
+                          Center(
+                              child: Text(
+                            "Doctor stone",
+                            style: TextStyle(
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )),
+                          SizedBox(height: 20.0),
+                          email,
+                          SizedBox(height: 8.0),
+                          password,
+                          SizedBox(height: 24.0),
+                       
+                    
+                          loginButton,
+                          forgotLabel,
+                        ],
+                      ),
+                    )      ,),
                   ],
-                ),
-              ),
-            ),
-          ),
+                )),
+          )),
         ],
       ),
     );
   }
+}
+
+double heightLoginContainer( BuildContext context){
+ return MediaQuery.of(context).size.height / 1.2;
+}
+double widthLoginContainer(BuildContext context){
+ return  MediaQuery.of(context).size.width > 1000 ?MediaQuery.of(context).size.width / 1.8  : MediaQuery.of(context).size.width / 1.2 ;
+}
+double widthLoginSpace(BuildContext context){
+ return  MediaQuery.of(context).size.width < 700 ? 0 :MediaQuery.of(context).size.width < 1000 ? MediaQuery.of(context).size.width / 4 : MediaQuery.of(context).size.width / 5;
 }

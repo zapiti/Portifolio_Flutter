@@ -20,41 +20,41 @@ define(['dart_sdk', 'packages/flutter_web/material', 'packages/flutter_web_ui/ui
     get C0() {
       return C0 = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        parameterLocations: C1 || CT.C1,
-        name: null,
-        column: 13,
-        line: 20,
-        file: "org-dartlang-app:///packages/myportfolio/main.dart"
+        [_Location_parameterLocations]: C1 || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 20,
+        [_Location_file]: "org-dartlang-app:///packages/myportfolio/main.dart"
       });
     },
     get C4() {
       return C4 = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        parameterLocations: null,
-        name: "debugShowCheckedModeBanner",
-        column: 7,
-        line: 14,
-        file: null
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "debugShowCheckedModeBanner",
+        [_Location_column]: 7,
+        [_Location_line]: 14,
+        [_Location_file]: null
       });
     },
     get C5() {
       return C5 = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        parameterLocations: null,
-        name: "theme",
-        column: 7,
-        line: 15,
-        file: null
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "theme",
+        [_Location_column]: 7,
+        [_Location_line]: 15,
+        [_Location_file]: null
       });
     },
     get C6() {
       return C6 = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        parameterLocations: null,
-        name: "home",
-        column: 7,
-        line: 20,
-        file: null
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "home",
+        [_Location_column]: 7,
+        [_Location_line]: 20,
+        [_Location_file]: null
       });
     },
     get C3() {
@@ -63,25 +63,30 @@ define(['dart_sdk', 'packages/flutter_web/material', 'packages/flutter_web_ui/ui
     get C2() {
       return C2 = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        parameterLocations: C3 || CT.C3,
-        name: null,
-        column: 12,
-        line: 13,
-        file: "org-dartlang-app:///packages/myportfolio/main.dart"
+        [_Location_parameterLocations]: C3 || CT.C3,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 13,
+        [_Location_file]: "org-dartlang-app:///packages/myportfolio/main.dart"
       });
     },
     get C7() {
       return C7 = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        parameterLocations: C1 || CT.C1,
-        name: null,
-        column: 10,
-        line: 5,
-        file: "org-dartlang-app:///packages/myportfolio/main.dart"
+        [_Location_parameterLocations]: C1 || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 10,
+        [_Location_line]: 5,
+        [_Location_file]: "org-dartlang-app:///packages/myportfolio/main.dart"
       });
     }
   });
   let C1;
+  const _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  const _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  const _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  const _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  const _Location_file = dart.privateName(widget_inspector, "_Location.file");
   let C0;
   let C4;
   let C5;
@@ -95,8 +100,8 @@ define(['dart_sdk', 'packages/flutter_web/material', 'packages/flutter_web_ui/ui
   };
   (main.MyApp.new = function(opts) {
     let key = opts && 'key' in opts ? opts.key : null;
-    let $creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    main.MyApp.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $creationLocationd_0dea112b090073317d4});
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    main.MyApp.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
   }).prototype = main.MyApp.prototype;
   dart.addTypeTests(main.MyApp);
@@ -112,7 +117,7 @@ define(['dart_sdk', 'packages/flutter_web/material', 'packages/flutter_web_ui/ui
   dart.trackLibraries("packages/myportfolio/main", {
     "package:myportfolio/main.dart": main
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["main.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;UAW4B;AACxB,YAAO,sDACuB,cACrB,sCACkB,uCACE,iCACb,6BAER;IAEV;;;QAbiB;;AAAQ,8CAAW,GAAG;;EAAC;;;;;;;;;IAJxC,eAAO;EACT","file":"main.ddc.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["main.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;UAW4B;AACxB,YAAO,sDACuB,cACrB,sCACkB,uCACE,iCACb,6BAER;IAEV;;;QAbiB;;AAAQ,8CAAW,GAAG;;EAAC;;;;;;;;;AAJzB,IAAf,eAAO;EACT","file":"main.ddc.js"}');
   // Exports:
   return {
     main: main

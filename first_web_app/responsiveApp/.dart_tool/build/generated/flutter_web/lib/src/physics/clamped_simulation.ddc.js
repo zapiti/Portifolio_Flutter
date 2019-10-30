@@ -21,9 +21,9 @@ define(['dart_sdk'], function(dart_sdk) {
     get C0() {
       return C0 = dart.const({
         __proto__: tolerance.Tolerance.prototype,
-        velocity: 0.001,
-        time: 0.001,
-        distance: 0.001
+        [Tolerance_velocity]: 0.001,
+        [Tolerance_time]: 0.001,
+        [Tolerance_distance]: 0.001
       });
     },
     get C1() {
@@ -51,6 +51,9 @@ define(['dart_sdk'], function(dart_sdk) {
       return C4 = dart.constList([C1 || CT.C1, C2 || CT.C2, C3 || CT.C3], spring_simulation.SpringType);
     }
   });
+  const Tolerance_distance = dart.privateName(tolerance, "Tolerance.distance");
+  const Tolerance_time = dart.privateName(tolerance, "Tolerance.time");
+  const Tolerance_velocity = dart.privateName(tolerance, "Tolerance.velocity");
   let C0;
   tolerance.Tolerance = class Tolerance extends core.Object {
     get distance() {
@@ -85,9 +88,9 @@ define(['dart_sdk'], function(dart_sdk) {
     ;
   }).prototype = tolerance.Tolerance.prototype;
   dart.addTypeTests(tolerance.Tolerance);
-  const distance$ = Symbol("Tolerance.distance");
-  const time$ = Symbol("Tolerance.time");
-  const velocity$ = Symbol("Tolerance.velocity");
+  const distance$ = Tolerance_distance;
+  const time$ = Tolerance_time;
+  const velocity$ = Tolerance_velocity;
   dart.setLibraryUri(tolerance.Tolerance, "package:flutter_web/src/physics/tolerance.dart");
   dart.setFieldSignature(tolerance.Tolerance, () => ({
     __proto__: dart.getFields(tolerance.Tolerance.__proto__),
@@ -117,6 +120,7 @@ define(['dart_sdk'], function(dart_sdk) {
   const _x = dart.privateName(gravity_simulation, "_x");
   const _v = dart.privateName(gravity_simulation, "_v");
   const _end = dart.privateName(gravity_simulation, "_end");
+  const Simulation_tolerance = dart.privateName(simulation, "Simulation.tolerance");
   simulation.Simulation = class Simulation extends core.Object {
     get tolerance() {
       return this[tolerance$];
@@ -134,7 +138,7 @@ define(['dart_sdk'], function(dart_sdk) {
     ;
   }).prototype = simulation.Simulation.prototype;
   dart.addTypeTests(simulation.Simulation);
-  const tolerance$ = Symbol("Simulation.tolerance");
+  const tolerance$ = Simulation_tolerance;
   dart.setLibraryUri(simulation.Simulation, "package:flutter_web/src/physics/simulation.dart");
   dart.setFieldSignature(simulation.Simulation, () => ({
     __proto__: dart.getFields(simulation.Simulation.__proto__),
@@ -180,6 +184,11 @@ define(['dart_sdk'], function(dart_sdk) {
     [_a]: dart.finalFieldType(core.double),
     [_end]: dart.finalFieldType(core.double)
   }));
+  const ClampedSimulation_simulation = dart.privateName(clamped_simulation, "ClampedSimulation.simulation");
+  const ClampedSimulation_xMin = dart.privateName(clamped_simulation, "ClampedSimulation.xMin");
+  const ClampedSimulation_xMax = dart.privateName(clamped_simulation, "ClampedSimulation.xMax");
+  const ClampedSimulation_dxMin = dart.privateName(clamped_simulation, "ClampedSimulation.dxMin");
+  const ClampedSimulation_dxMax = dart.privateName(clamped_simulation, "ClampedSimulation.dxMax");
   clamped_simulation.ClampedSimulation = class ClampedSimulation extends simulation.Simulation {
     get simulation() {
       return this[simulation$];
@@ -238,11 +247,11 @@ define(['dart_sdk'], function(dart_sdk) {
     ;
   }).prototype = clamped_simulation.ClampedSimulation.prototype;
   dart.addTypeTests(clamped_simulation.ClampedSimulation);
-  const simulation$ = Symbol("ClampedSimulation.simulation");
-  const xMin$ = Symbol("ClampedSimulation.xMin");
-  const xMax$ = Symbol("ClampedSimulation.xMax");
-  const dxMin$ = Symbol("ClampedSimulation.dxMin");
-  const dxMax$ = Symbol("ClampedSimulation.dxMax");
+  const simulation$ = ClampedSimulation_simulation;
+  const xMin$ = ClampedSimulation_xMin;
+  const xMax$ = ClampedSimulation_xMax;
+  const dxMin$ = ClampedSimulation_dxMin;
+  const dxMax$ = ClampedSimulation_dxMax;
   dart.setMethodSignature(clamped_simulation.ClampedSimulation, () => ({
     __proto__: dart.getMethods(clamped_simulation.ClampedSimulation.__proto__),
     x: dart.fnType(core.double, [core.double]),
@@ -258,6 +267,9 @@ define(['dart_sdk'], function(dart_sdk) {
     dxMin: dart.finalFieldType(core.double),
     dxMax: dart.finalFieldType(core.double)
   }));
+  const SpringDescription_mass = dart.privateName(spring_simulation, "SpringDescription.mass");
+  const SpringDescription_stiffness = dart.privateName(spring_simulation, "SpringDescription.stiffness");
+  const SpringDescription_damping = dart.privateName(spring_simulation, "SpringDescription.damping");
   spring_simulation.SpringDescription = class SpringDescription extends core.Object {
     get mass() {
       return this[mass$];
@@ -300,9 +312,9 @@ define(['dart_sdk'], function(dart_sdk) {
     ;
   }).prototype = spring_simulation.SpringDescription.prototype;
   dart.addTypeTests(spring_simulation.SpringDescription);
-  const mass$ = Symbol("SpringDescription.mass");
-  const stiffness$ = Symbol("SpringDescription.stiffness");
-  const damping$ = Symbol("SpringDescription.damping");
+  const mass$ = SpringDescription_mass;
+  const stiffness$ = SpringDescription_stiffness;
+  const damping$ = SpringDescription_damping;
   dart.setLibraryUri(spring_simulation.SpringDescription, "package:flutter_web/src/physics/spring_simulation.dart");
   dart.setFieldSignature(spring_simulation.SpringDescription, () => ({
     __proto__: dart.getFields(spring_simulation.SpringDescription.__proto__),
@@ -646,7 +658,7 @@ define(['dart_sdk'], function(dart_sdk) {
     "package:flutter_web/src/physics/spring_simulation.dart": spring_simulation,
     "package:flutter_web/src/physics/friction_simulation.dart": friction_simulation
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["tolerance.dart","utils.dart","simulation.dart","gravity_simulation.dart","clamped_simulation.dart","spring_simulation.dart","friction_simulation.dart"],"names":[],"mappings":"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","file":"clamped_simulation.ddc.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["tolerance.dart","utils.dart","simulation.dart","gravity_simulation.dart","clamped_simulation.dart","spring_simulation.dart","friction_simulation.dart"],"names":[],"mappings":"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","file":"clamped_simulation.ddc.js"}');
   // Exports:
   return {
     src__physics__tolerance: tolerance,

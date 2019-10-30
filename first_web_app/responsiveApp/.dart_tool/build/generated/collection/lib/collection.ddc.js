@@ -55,8 +55,9 @@ define(['dart_sdk', 'packages/collection/src/canonicalized_map', 'packages/colle
       return C0 = dart.const(new _js_helper.PrivateSymbol.new('_source', _source));
     }
   });
-  const _iterables$ = dart.privateName(combined_iterable, "_iterables");
+  const _iterables = dart.privateName(combined_iterable, "_iterables");
   const _is_CombinedIterableView_default = Symbol('_is_CombinedIterableView_default');
+  const CombinedIterableView__iterables = dart.privateName(combined_iterable, "CombinedIterableView._iterables");
   combined_iterable.CombinedIterableView$ = dart.generic(T => {
     let _CombinedIteratorOfT = () => (_CombinedIteratorOfT = dart.constFn(combined_iterable._CombinedIterator$(T)))();
     let IteratorOfT = () => (IteratorOfT = dart.constFn(core.Iterator$(T)))();
@@ -65,17 +66,23 @@ define(['dart_sdk', 'packages/collection/src/canonicalized_map', 'packages/colle
     let IterableOfTTobool = () => (IterableOfTTobool = dart.constFn(dart.fnType(core.bool, [IterableOfT()])))();
     let intAndIterableOfTToint = () => (intAndIterableOfTToint = dart.constFn(dart.fnType(core.int, [core.int, IterableOfT()])))();
     class CombinedIterableView extends collection.IterableBase$(T) {
+      get [_iterables]() {
+        return this[_iterables$];
+      }
+      set [_iterables](value) {
+        super[_iterables] = value;
+      }
       get iterator() {
-        return new (_CombinedIteratorOfT()).new(this[_iterables$][$map](IteratorOfT(), dart.fn(i => i[$iterator], IterableOfTToIteratorOfT()))[$iterator]);
+        return new (_CombinedIteratorOfT()).new(this[_iterables][$map](IteratorOfT(), dart.fn(i => i[$iterator], IterableOfTToIteratorOfT()))[$iterator]);
       }
       contains(element) {
-        return this[_iterables$][$any](dart.fn(i => i[$contains](element), IterableOfTTobool()));
+        return this[_iterables][$any](dart.fn(i => i[$contains](element), IterableOfTTobool()));
       }
       get isEmpty() {
-        return this[_iterables$][$every](dart.fn(i => i[$isEmpty], IterableOfTTobool()));
+        return this[_iterables][$every](dart.fn(i => i[$isEmpty], IterableOfTTobool()));
       }
       get length() {
-        return this[_iterables$][$fold](core.int, 0, dart.fn((length, i) => dart.notNull(length) + dart.notNull(i[$length]), intAndIterableOfTToint()));
+        return this[_iterables][$fold](core.int, 0, dart.fn((length, i) => dart.notNull(length) + dart.notNull(i[$length]), intAndIterableOfTToint()));
       }
     }
     (CombinedIterableView.new = function(_iterables) {
@@ -85,6 +92,7 @@ define(['dart_sdk', 'packages/collection/src/canonicalized_map', 'packages/colle
     }).prototype = CombinedIterableView.prototype;
     dart.addTypeTests(CombinedIterableView);
     CombinedIterableView.prototype[_is_CombinedIterableView_default] = true;
+    const _iterables$ = CombinedIterableView__iterables;
     dart.setGetterSignature(CombinedIterableView, () => ({
       __proto__: dart.getGetters(CombinedIterableView.__proto__),
       iterator: core.Iterator$(T),
@@ -93,7 +101,7 @@ define(['dart_sdk', 'packages/collection/src/canonicalized_map', 'packages/colle
     dart.setLibraryUri(CombinedIterableView, "package:collection/src/combined_wrappers/combined_iterable.dart");
     dart.setFieldSignature(CombinedIterableView, () => ({
       __proto__: dart.getFields(CombinedIterableView.__proto__),
-      [_iterables$]: dart.finalFieldType(core.Iterable$(core.Iterable$(T)))
+      [_iterables]: dart.finalFieldType(core.Iterable$(core.Iterable$(T)))
     }));
     dart.defineExtensionMethods(CombinedIterableView, ['contains']);
     dart.defineExtensionAccessors(CombinedIterableView, ['iterator', 'isEmpty', 'length']);
@@ -150,14 +158,16 @@ define(['dart_sdk', 'packages/collection/src/canonicalized_map', 'packages/colle
   const _grow = dart.privateName(queue_list, "_grow");
   const _writeToList = dart.privateName(queue_list, "_writeToList");
   const _is_QueueList_default = Symbol('_is_QueueList_default');
+  const QueueList__head = dart.privateName(queue_list, "QueueList._head");
+  const QueueList__tail = dart.privateName(queue_list, "QueueList._tail");
   queue_list.QueueList$ = dart.generic(E => {
     let ListOfE = () => (ListOfE = dart.constFn(core.List$(E)))();
     let IterableOfE = () => (IterableOfE = dart.constFn(core.Iterable$(E)))();
-    const Object_ListMixin$ = class Object_ListMixin extends core.Object {};
-    (Object_ListMixin$.new = function() {
-    }).prototype = Object_ListMixin$.prototype;
-    dart.applyMixin(Object_ListMixin$, collection.ListMixin$(E));
-    class QueueList extends Object_ListMixin$ {
+    const Object_ListMixin$36 = class Object_ListMixin extends core.Object {};
+    (Object_ListMixin$36.new = function() {
+    }).prototype = Object_ListMixin$36.prototype;
+    dart.applyMixin(Object_ListMixin$36, collection.ListMixin$(E));
+    class QueueList extends Object_ListMixin$36 {
       get [_head]() {
         return this[_head$];
       }
@@ -362,8 +372,8 @@ define(['dart_sdk', 'packages/collection/src/canonicalized_map', 'packages/colle
     }).prototype = QueueList.prototype;
     dart.addTypeTests(QueueList);
     QueueList.prototype[_is_QueueList_default] = true;
-    const _head$ = Symbol("QueueList._head");
-    const _tail$ = Symbol("QueueList._tail");
+    const _head$ = QueueList__head;
+    const _tail$ = QueueList__tail;
     QueueList[dart.implements] = () => [collection.Queue$(E)];
     dart.setMethodSignature(QueueList, () => ({
       __proto__: dart.getMethods(QueueList.__proto__),
@@ -474,11 +484,11 @@ define(['dart_sdk', 'packages/collection/src/canonicalized_map', 'packages/colle
     let ETobool = () => (ETobool = dart.constFn(dart.fnType(core.bool, [E])))();
     let SetOfETobool = () => (SetOfETobool = dart.constFn(dart.fnType(core.bool, [SetOfE()])))();
     let SetOfEToE = () => (SetOfEToE = dart.constFn(dart.fnType(E, [SetOfE()])))();
-    const SetBase_UnmodifiableSetMixin$ = class SetBase_UnmodifiableSetMixin extends collection.SetBase$(E) {};
-    (SetBase_UnmodifiableSetMixin$.new = function() {
-    }).prototype = SetBase_UnmodifiableSetMixin$.prototype;
-    dart.applyMixin(SetBase_UnmodifiableSetMixin$, unmodifiable_wrappers.UnmodifiableSetMixin$(E));
-    class UnionSet extends SetBase_UnmodifiableSetMixin$ {
+    const SetBase_UnmodifiableSetMixin$36 = class SetBase_UnmodifiableSetMixin extends collection.SetBase$(E) {};
+    (SetBase_UnmodifiableSetMixin$36.new = function() {
+    }).prototype = SetBase_UnmodifiableSetMixin$36.prototype;
+    dart.applyMixin(SetBase_UnmodifiableSetMixin$36, unmodifiable_wrappers.UnmodifiableSetMixin$(E));
+    class UnionSet extends SetBase_UnmodifiableSetMixin$36 {
       get length() {
         return dart.test(this[_disjoint]) ? this[_sets$][$fold](core.int, 0, dart.fn((length, set) => dart.notNull(length) + dart.notNull(set[$length]), intAndSetOfEToint())) : this[_iterable][$length];
       }
@@ -699,9 +709,16 @@ define(['dart_sdk', 'packages/collection/src/canonicalized_map', 'packages/colle
   dart.addTypeTests(combined_map.CombinedMapView, _is_CombinedMapView_default);
   const _iterable$ = dart.privateName(combined_map, "_iterable");
   const _is__DeduplicatingIterableView_default = Symbol('_is__DeduplicatingIterableView_default');
+  const _DeduplicatingIterableView__iterable = dart.privateName(combined_map, "_DeduplicatingIterableView._iterable");
   combined_map._DeduplicatingIterableView$ = dart.generic(T => {
     let _DeduplicatingIteratorOfT = () => (_DeduplicatingIteratorOfT = dart.constFn(combined_map._DeduplicatingIterator$(T)))();
     class _DeduplicatingIterableView extends collection.IterableBase$(T) {
+      get [_iterable$]() {
+        return this[_iterable$0];
+      }
+      set [_iterable$](value) {
+        super[_iterable$] = value;
+      }
       get iterator() {
         return new (_DeduplicatingIteratorOfT()).new(this[_iterable$][$iterator]);
       }
@@ -713,12 +730,13 @@ define(['dart_sdk', 'packages/collection/src/canonicalized_map', 'packages/colle
       }
     }
     (_DeduplicatingIterableView.new = function(_iterable) {
-      this[_iterable$] = _iterable;
+      this[_iterable$0] = _iterable;
       _DeduplicatingIterableView.__proto__.new.call(this);
       ;
     }).prototype = _DeduplicatingIterableView.prototype;
     dart.addTypeTests(_DeduplicatingIterableView);
     _DeduplicatingIterableView.prototype[_is__DeduplicatingIterableView_default] = true;
+    const _iterable$0 = _DeduplicatingIterableView__iterable;
     dart.setGetterSignature(_DeduplicatingIterableView, () => ({
       __proto__: dart.getGetters(_DeduplicatingIterableView.__proto__),
       iterator: core.Iterator$(T),
@@ -992,7 +1010,7 @@ define(['dart_sdk', 'packages/collection/src/canonicalized_map', 'packages/colle
     "package:collection/src/equality_set.dart": equality_set,
     "package:collection/src/equality_map.dart": equality_map
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["src/combined_wrappers/combined_iterable.dart","src/queue_list.dart","src/union_set.dart","src/combined_wrappers/combined_list.dart","src/combined_wrappers/combined_map.dart","src/union_set_controller.dart","src/functions.dart","src/equality_set.dart","src/equality_map.dart"],"names":[],"mappings":"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","file":"collection.ddc.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["src\\\\combined_wrappers\\\\combined_iterable.dart","src\\\\queue_list.dart","src\\\\union_set.dart","src\\\\combined_wrappers\\\\combined_list.dart","src\\\\combined_wrappers\\\\combined_map.dart","src\\\\union_set_controller.dart","src\\\\functions.dart","src\\\\equality_set.dart","src\\\\equality_map.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAe8B;;;;;;;AAMxB,gDAAqB,AAAW,AAAuB,sCAAnB,QAAC,KAAM,AAAE,CAAD;MAAoB;eAK/C;AAAY,cAAA,AAAW,wBAAI,QAAC,KAAM,AAAE,CAAD,YAAU,OAAO;MAAE;;AAEvD,cAAA,AAAW,0BAAM,QAAC,KAAM,AAAE,CAAD;MAAS;;AAEpC,cAAA,AAAW,mCAAK,GAAG,SAAC,QAAQ,MAAa,aAAP,MAAM,iBAAG,AAAE,CAAD;MAAQ;;;MAZtC;AAA1B;;IAAqC;;;;;;;;;;;;;;;;;;;;;;;;;;AA2B1B,aAAA,AAAW;4BAAA,OAAS;MAAO;;AAGtC,sBAAU,AAAW;AACzB,YAAI,OAAO,IAAI,kBAAQ,AAAQ,OAAD;AAC5B,gBAAO;;AAET,cAA6B,WAAtB,AAAW,2CAAc;MAClC;;;MAVuB;;IAAW;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MCd9B;;;;;;MACA;;;;;;6BAP6C;AAC/C,cAAO,4CAAqB,MAAM;MACpC;kBA2BmC;;AACjC,YAAW,aAAP,MAAM;AACJ,uBAAS,AAAO,MAAD;AACN,sBAAQ,mCAAiB,aAAP,MAAM,IAAG;AACxC,gBAA2B,aAApB,AAAM,AAAO,KAAR,kCAAiB,MAAM;AAC/B,2BAAa,MAAM;AACwB,UAA/C,AAAM,AAAO,KAAR,oBAAiB,GAAG,MAAM,EAAE,UAAU,EAAE;AACzB,UAApB,AAAM,KAAD,UAAS,MAAM;AACpB,gBAAO,MAAK;;AAEZ,eAAO;UAAgB,UAAO,MAAM;;;MAExC;UAIW;;AACI,QAAb,WAAK,OAAO;MACd;aAEwB;;AACtB,YAAa,aAAT,QAAQ;AACN,qBAAO,QAAQ;AACf,yBAAW,AAAK,IAAD;AACf,uBAAc;AAClB,cAAW,AAAW,aAAlB,MAAM,iBAAG,QAAQ,kBAAI,AAAO;AACH,YAA3B,eAAgB,aAAP,MAAM,iBAAG,QAAQ;AAEyB,YAAnD,AAAO,wBAAS,MAAM,EAAS,aAAP,MAAM,iBAAG,QAAQ,GAAE,IAAI,EAAE;AAChC,YAAjB,cAAM,aAAN,4BAAS,QAAQ;;AAGb,2BAAyB,aAAd,AAAO,sCAAS;AAC/B,gBAAa,aAAT,QAAQ,IAAG,QAAQ;AAC4B,cAAjD,AAAO,wBAAS,aAAa,aAAN,4BAAQ,QAAQ,GAAE,IAAI,EAAE;AAC9B,cAAjB,cAAM,aAAN,4BAAS,QAAQ;;AAEb,6BAAoB,aAAT,QAAQ,IAAG,QAAQ;AACe,cAAjD,AAAO,wBAAS,aAAa,aAAN,eAAQ,QAAQ,EAAE,IAAI,EAAE;AACH,cAA5C,AAAO,wBAAS,GAAG,QAAQ,EAAE,IAAI,EAAE,QAAQ;AAC3B,cAAhB,cAAQ,QAAQ;;;;AAIpB,mBAAO,UAAW,SAAQ;AACX,YAAb,WAAK,OAAO;;;MAGlB;;AAE0B,cAAU,sCAAgB;MAAK;;AAG7B;MAAS;;AAEhB,cAAa,8CAAqB,MAAM,KAAK;MAAI;cAIvD;;AACA,QAAb,WAAK,OAAO;MACd;eAEgB;;AAC2B,QAAzC,cAAoB,CAAL,aAAN,eAAQ,IAAoB,aAAd,AAAO,yBAAS;AAChB,QAAvB,AAAM,oBAAC,aAAS,OAAO;AACvB,YAAI,AAAM,eAAG,aAAO,AAAO;MAC7B;;AAGE,YAAI,AAAM,eAAG,aAAO,AAA8B,WAAxB,wBAAW;AACnC,qBAAS,AAAM,oBAAC;AACE,QAApB,AAAM,oBAAC,aAAS;AACyB,QAAzC,cAAoB,CAAL,aAAN,eAAQ,IAAoB,aAAd,AAAO,yBAAS;AACvC,cAAO,OAAM;MACf;;AAGE,YAAI,AAAM,eAAG,aAAO,AAA8B,WAAxB,wBAAW;AACI,QAAzC,cAAoB,CAAL,aAAN,eAAQ,IAAoB,aAAd,AAAO,yBAAS;AACrC,qBAAS,AAAM,oBAAC;AACE,QAApB,AAAM,oBAAC,aAAS;AAChB,cAAO,OAAM;MACf;;AAIkB,cAAgB,EAAT,aAAN,4BAAQ,eAAwB,aAAd,AAAO,yBAAS;MAAE;iBAExC;AACb,YAAU,aAAN,KAAK,IAAG,GAAG,AAAsD,WAAhD,wBAAW,AAAoC,qBAA3B,KAAK;AAE1C,oBAAc,aAAN,KAAK,iBAAG;AACpB,YAAI,AAAM,KAAD,IAAI;AACX,cAAkB,aAAd,AAAO,uCAAU,KAAK;AACT,YAAf,eAAS,KAAK;;AAE6B,UAA7C,cAAwB,CAAT,aAAN,eAAQ,KAAK,GAAmB,aAAd,AAAO,yBAAS;AAC3C;;AAGE,sBAAgB,aAAN,eAAQ,KAAK;AAC3B,YAAI,AAAQ,OAAD,IAAI;AACyB,UAAtC,AAAO,yBAAU,OAAO,EAAE,aAAO;;AAET,UAAxB,UAAA,AAAQ,OAAD,gBAAI,AAAO;AACc,UAAhC,AAAO,yBAAU,GAAG,aAAO;AACmB,UAA9C,AAAO,yBAAU,OAAO,EAAE,AAAO,uBAAQ;;AAE5B,QAAf,cAAQ,OAAO;MACjB;WAEkB;AAChB,YAAU,aAAN,KAAK,IAAG,KAAW,aAAN,KAAK,kBAAI;AAC2C,UAAnE,WAAM,wBAAW,AAAiD,oBAAzC,KAAK,4CAA2B,eAAM;;AAGjE,cAAO,AAAM,qBAAiB,CAAT,aAAN,4BAAQ,KAAK,IAAmB,aAAd,AAAO,yBAAS;MACnD;WAEsB;YAAS;;AAC7B,YAAU,aAAN,KAAK,IAAG,KAAW,aAAN,KAAK,kBAAI;AAC2C,UAAnE,WAAM,wBAAW,AAAiD,oBAAzC,KAAK,4CAA2B,eAAM;;AAGZ,QAArD,AAAM,oBAAiB,CAAT,aAAN,4BAAQ,KAAK,IAAmB,aAAd,AAAO,yBAAS,UAAM,KAAK;;MACvD;yBAO4B;AAAW,cAAwB,EAAhB,aAAP,MAAM,IAAW,aAAP,MAAM,IAAG,OAAO;MAAC;2BAOtC;AAC3B,cAAc,aAAP,MAAM,IAAG;AACU,QAA1B,SAAuB,CAAN,aAAP,MAAM,KAAI,WAAK;AACzB;AACM,2BAAoB,cAAP,MAAM,IAAW,aAAP,MAAM,IAAG;AACpC,cAAI,AAAW,UAAD,KAAI,GAAG,MAAO,OAAM;AACf,UAAnB,SAAS,UAAU;;MAEvB;aAGY;AACa,QAAvB,AAAM,oBAAC,aAAS,OAAO;AACkB,QAAzC,cAAoB,CAAL,aAAN,eAAQ,IAAoB,aAAd,AAAO,yBAAS;AACvC,YAAI,AAAM,eAAG,aAAO,AAAO;MAC7B;;AAIU,uBAAW,cAAsB,aAAd,AAAO,yBAAS;AACvC,oBAAsB,aAAd,AAAO,sCAAS;AACc,QAA1C,AAAS,QAAD,YAAU,GAAG,KAAK,EAAE,cAAQ;AACc,QAAlD,AAAS,QAAD,YAAU,KAAK,EAAE,AAAM,KAAD,gBAAG,cAAO,cAAQ;AACvC,QAAT,cAAQ;AACa,QAArB,cAAQ,AAAO;AACE,QAAjB,eAAS,QAAQ;MACnB;qBAEyB;AACvB,cAAqB,aAAd,AAAO,MAAD,2BAAW;AACxB,YAAU,aAAN,6BAAS;AACP,uBAAe,aAAN,4BAAQ;AACoB,UAAzC,AAAO,MAAD,YAAU,GAAG,MAAM,EAAE,cAAQ;AACnC,gBAAO,OAAM;;AAET,8BAA8B,aAAd,AAAO,sCAAS;AACY,UAAhD,AAAO,MAAD,YAAU,GAAG,aAAa,EAAE,cAAQ;AACsB,UAAhE,AAAO,MAAD,YAAU,aAAa,EAAE,AAAc,aAAD,gBAAG,cAAO,cAAQ;AAC9D,gBAAa,cAAN,eAAQ,aAAa;;MAEhC;iBAGkB;AAChB,cAAuB,aAAhB,eAAe,kBAAI;AAIa,QAAvC,kBAAgB,aAAhB,eAAe,IAAI,AAAgB,eAAD,cAAI;AAClC,0BAAc,mCAAc,eAAe;AACvC,uBAAW,cAAQ,WAAW;AACR,QAA9B,cAAQ,mBAAa,QAAQ;AACZ,QAAjB,eAAS,QAAQ;AACR,QAAT,cAAQ;MACV;;8BAlNe;;MARP;MASI,eAAE;MACF,eAAE;AACZ,UAAI,AAAgB,eAAD,IAAI,QAAwB,aAAhB,eAAe;AACT,QAAnC;YACK,gBAAK,iCAAY,eAAe;AACW,QAAhD,kBAAkB,mCAAc,eAAe;;AAEjD,qBAAO,iCAAY,eAAe;AACD,MAAjC,eAAS,cAAQ,eAAe;IAClC;;MAlBQ;;;;IAqBK;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAtBI,sCAAiB;;;;;;;;;;AAqOjB,cAAA,AAAU;MAAK;kBAElB;AAAU,cAAA,AAAU,2BAAQ,KAAK;;;AAE9B,cAAA,AAAU;MAAK;kBAElB;AAAU,cAAA,AAAU,2BAAQ,KAAK;;;;MAV3B;AAAmB;AACF,MAAnC,eAAS,AAAU,AAAO;IAC5B;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AChNkB,4CACZ,AAAM,8BAAK,GAAG,SAAC,QAAQ,QAAe,aAAP,MAAM,iBAAG,AAAI,GAAD,oCAC3C,AAAU;MAAM;;AAEM,cAAA,AAAU;MAAQ;;AAI1C,4CAAY,AAAM,yBAAO,QAAC,OAAQ,GAAG,uBAAI;MAAc;;AAQrD,mBAAO;AACX,cAAO,AAAM,AAAqB,0BAAd,QAAC,OAAQ,GAAG,6BAAQ,QAAC;AACvC,wBAAI,AAAK,IAAD,UAAU,OAAO,IAAG,MAAO;AAClB,UAAjB,AAAK,IAAD,KAAK,OAAO;AAChB,gBAAO;;MAEX;eAEqB;AAAY,cAAA,AAAM,oBAAI,QAAC,OAAQ,AAAI,GAAD,UAAU,OAAO;MAAE;aAE1D;AACd,YAAI,AAAQ,OAAD,IAAI,MAAM,MAAO;AAE5B,cAAO,AACF,AACA,uBADI,QAAC,OAAQ,AAAI,GAAD,QAAQ,OAAO,8BACpB,QAAC,UAAW,MAAM,IAAI,2BAAc,cAAM;MAC5D;;AAGM,qBAAS;AACb,iBAAS,MAAO;AACI,UAAlB,AAAO,MAAD,QAAQ,GAAG;;AAEnB,cAAO,OAAM;MACf;;6BAvDc;UAAa;MAAb;MAA4C,kBAAE,QAAQ;;;8BAYrC;UAAY;8BAChC,AAAK,IAAD,uBAAoB,QAAQ;IAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AC1BkB,QAA5D,WAAM,8BAAiB;MACzB;iBAQe;AACL,QAAR;MACF;;AAEkB,cAAA,AAAO,gCAAK,GAAG,SAAC,QAAQ,SAAgB,aAAP,MAAM,iBAAG,AAAK,IAAD;MAAQ;WAEtD;AACZ,2BAAe,KAAK;AACxB,iBAAS,IAAI,GAAG,AAAE,CAAD,gBAAG,AAAO,yBAAQ,IAAA,AAAC,CAAA;AAC9B,qBAAO,AAAM,qBAAC,CAAC;AACnB,cAAU,aAAN,KAAK,iBAAG,AAAK,IAAD;AACd,kBAAO,AAAI,KAAA,QAAC,KAAK;;AAEC,UAApB,QAAM,aAAN,KAAK,iBAAI,AAAK,IAAD;;AAEkD,QAAjE,WAAiB,wBAAM,YAAY,EAAE,MAAM,SAAS,MAAM;MAC5D;WAEsB;YAAS;;AACrB,QAAR;;MACF;;AAGU,QAAR;MACF;aAEmB;AACT,QAAR;AACA,cAAO;MACT;kBAEsB;AACZ,QAAR;MACF;kBAEsB;AACZ,QAAR;MACF;;;;;;MAvCsB;;IAAO;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;WCKR;AACnB,iBAAS,MAAO;AAEV,sBAAQ,AAAG,GAAA,QAAC,GAAG;AACnB,cAAI,KAAK,IAAI,kBAAQ,AAAI,GAAD,eAAa,KAAK;AACxC,kBAAO,MAAK;;;AAGhB,cAAO;MACT;;AAgBwB,yDACpB,oCAAqB,AAAM,kCAAI,QAAC,KAAM,AAAE,CAAD;MAAQ;;;MA5B9B;;IAAM;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAiCT;;;;;;;AAIU,qDAAuB,AAAU;MAAS;eAQjD;AAAY,cAAA,AAAU,6BAAS,OAAO;MAAC;;AAExC,cAAA,AAAU;MAAO;;;MAZC;AAAhC;;IAA0C;;;;;;;;;;;;;;;;;;;;;;;;;;;AAuB/B,cAAA,AAAU;MAAO;;AAGhC,yBAAO,AAAU;AACf,wBAAI,AAAS,mBAAI;AACf,kBAAO;;;AAGX,cAAO;MACT;;2CAX4B;MAFtB,iBAAW;MAEW;;IAAU;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AC3Df;MAAI;UAmBX;;AACM,QAApB,AAAM,gBAAI,SAAS;MACrB;aAMmB;;AAAc,cAAA,AAAM,oBAAO,SAAS;MAAC;;;UAhB/B;MAVb;MAGN,cAAQ;AAQiC,MAA7C,aAAO,wBAAY,wBAAiB,QAAQ;IAC9C;;;;;;;;;;;;;;;;;;;;;;qDCvB6C;QACvC;QAA0B;AACG,IAAnC,AAAI,GAAD,IAAC,OAAJ,MAAQ,SAAC,QAAQ,MAAa,MAAP,MAAM,gCAAzB;AACqC,IAAzC,AAAM,KAAD,IAAC,OAAN,QAAU,SAAC,GAAG,aAAsB,MAAT,QAAQ,gCAA7B;AAEF,iBAAiB;AAGnB,IAFF,AAAI,GAAD,WAAS,SAAC,QAAQ;AACoC,MAAvD,AAAM,MAAA,QAAC,AAAG,GAAA,CAAC,MAAM,EAAE,QAAQ,GAAK,AAAK,KAAA,CAAC,MAAM,EAAE,QAAQ;;AAExD,UAAO,OAAM;EACf;iDAOoC,MAAgB;;QAC7C;AACD,iBAAO,qCAAiB,IAAI;AAChC,QAAI,AAAM,KAAD,IAAI,MAAM;WAAO,MAAM;MAAE,YAAO,IAAI;;;AAK3C,IAHF,AAAK,IAAD,WAAS,SAAC,KAAK;AAEoD,MADrE,AAAM,MAAA,QAAC,GAAG,YACN,AAAO,MAAD,eAAa,GAAG,KAAI,AAAK,KAAA,CAAC,AAAM,MAAA,QAAC,GAAG,GAAG,QAAQ,IAAI,QAAQ;;AAEvE,UAAO,OAAM;EACf;6CAO0C,QAAU;AAC9C,cAAkB;AACtB,aAAS,UAAW,OAAM;AACpB,iBAAO,AAAI,GAAD,eAAa,AAAG,GAAA,CAAC,OAAO,GAAG,cAAM;AAC9B,MAAjB,AAAK,IAAD,OAAK,OAAO;;AAElB,UAAO,IAAG;EACZ;yCAQ0B,QAAU;QAC3B;AACwB,IAA/B,AAAQ,OAAD,IAAC,OAAR,UAAY,0BAAJ;AAEN;AACA;AACF,aAAS,UAAW,OAAM;AACpB,2BAAiB,AAAO,OAAA,CAAC,OAAO;AACpC,UAAI,AAAW,UAAD,IAAI,QAA4C,aAApC,AAAO,OAAA,CAAC,cAAc,EAAE,UAAU,KAAI;AAC5C,QAAlB,WAAW,OAAO;AACS,QAA3B,aAAa,cAAc;;;AAG/B,UAAO,SAAQ;EACjB;yCAQ0B,QAAU;QAC3B;AACwB,IAA/B,AAAQ,OAAD,IAAC,OAAR,UAAY,0BAAJ;AAEN;AACA;AACF,aAAS,UAAW,OAAM;AACpB,2BAAiB,AAAO,OAAA,CAAC,OAAO;AACpC,UAAI,AAAW,UAAD,IAAI,QAA4C,aAApC,AAAO,OAAA,CAAC,cAAc,EAAE,UAAU,KAAI;AAC5C,QAAlB,WAAW,OAAO;AACS,QAA3B,aAAa,cAAc;;;AAG/B,UAAO,SAAQ;EACjB;8DAawD;AAKlD,iBAAoB;AAGtB,IAFF,AAAM,KAAD,WAAS,SAAC,QAAQ;AACc,MAAnC,AAAM,MAAA,QAAC,MAAM,EAAE,kCAAc,KAAK;;AAKhC,eAAO,AAAM,AAAK,KAAN;AAChB,aAAS,UAAW,KAAI;AACtB,eAAS,UAAW,KAAI;AACtB,iBAAS,UAAW,KAAI;AACtB,wBAAI,AAAM,AAAU,MAAV,QAAC,OAAO,WAAW,OAAO,gBAChC,AAAM,AAAU,MAAV,QAAC,OAAO,WAAW,OAAO;AACN,YAA5B,AAAM,AAAU,MAAV,QAAC,OAAO,MAAM,OAAO;;;;;AAMnC,UAAO,OAAM;EACf;kFAcgE;AAI1D,gBAAQ;AACR,gBAAW;AACX,iBAAiB;AAIjB,kBAAU;AACV,mBAAW;AACX,kBAAU;AAEd,2BAAgB;AACS,MAAvB,AAAO,OAAA,QAAC,MAAM,EAAI,KAAK;AACC,MAAxB,AAAQ,QAAA,QAAC,MAAM,EAAI,KAAK;AACjB,MAAP,QAAA,AAAK,KAAA;AAEY,MAAjB,AAAM,KAAD,OAAK,MAAM;AACG,MAAnB,AAAQ,OAAD,KAAK,MAAM;AAElB,eAAS,YAAa,AAAK,MAAA,QAAC,MAAM;AAChC,uBAAK,AAAQ,OAAD,eAAa,SAAS;AACR,UAAxB,AAAa,aAAA,CAAC,SAAS;AAC2C,UAAlE,AAAQ,QAAA,QAAC,MAAM,EAAI,mBAAS,AAAQ,QAAA,QAAC,MAAM,GAAG,AAAQ,QAAA,QAAC,SAAS;cAC3D,eAAI,AAAQ,OAAD,UAAU,SAAS;AAC+B,UAAlE,AAAQ,QAAA,QAAC,MAAM,EAAI,mBAAS,AAAQ,QAAA,QAAC,MAAM,GAAG,AAAQ,QAAA,QAAC,SAAS;;;AAIpE,UAAI,AAAQ,AAAS,QAAT,QAAC,MAAM,KAAK,AAAO,OAAA,QAAC,MAAM;AAChC,wBAAY;AACd;AACF;AAC+B,UAA7B,WAAW,AAAM,KAAD;AACQ,UAAxB,AAAQ,OAAD,QAAQ,QAAQ;AACA,UAAvB,AAAU,SAAD,KAAK,QAAQ;8BACf,QAAQ,EAAI,MAAM;AACN,QAArB,AAAO,MAAD,OAAK,SAAS;;;;AAIxB,aAAS,SAAU,AAAM,MAAD;AACtB,qBAAK,AAAQ,OAAD,eAAa,MAAM,IAAG,AAAa,AAAQ,aAAR,CAAC,MAAM;;AAKxD,UAAO,AAAO,AAAS,OAAV;EACf;;;;;gCC9L0B;AAClB,2CAAM,gCACe,UAAT,QAAQ,uBACG,UAAT,QAAQ,uBACG,UAAT,QAAQ;;IAAa;iCAOd,UAAsB;AAC7C,2CAAM,gCACe,UAAT,QAAQ,uBACG,UAAT,QAAQ,uBACG,UAAT,QAAQ;AACf,MAAb,YAAO,KAAK;IACd;;;;;;;;;;;;gCCjBwB;AAClB,2CAAM,kCACe,UAAT,QAAQ,uBACG,UAAT,QAAQ,uBACG,UAAT,QAAQ;;IAAa;iCAOd,UAAoB;AAC3C,2CAAM,kCACe,UAAT,QAAQ,uBACG,UAAT,QAAQ,uBACG,UAAT,QAAQ;AACf,MAAb,YAAO,KAAK;IACd","file":"collection.ddc.js"}');
   // Exports:
   return {
     src__combined_wrappers__combined_iterable: combined_iterable,

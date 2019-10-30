@@ -16,7 +16,7 @@ class HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
-    tabController = new TabController(vsync: this, length: 3, initialIndex: 0)
+    tabController =  TabController(vsync: this, length: 3, initialIndex: 0)
       ..addListener(() {
         setState(() {
           active = tabController.index;
@@ -33,9 +33,10 @@ class HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar:   MediaQuery.of(context).size.width < 1100 ? AppBar(
         automaticallyImplyLeading:
-            MediaQuery.of(context).size.width < 1300 ? true : false,
+            MediaQuery.of(context).size.width < 1100 ? true : false,
+      iconTheme: IconThemeData(color: Colors.orange),
         title: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
@@ -45,37 +46,34 @@ class HomeScreenState extends State<HomeScreen>
                   "Doctor Stone",
                   style: TextStyle(
                     fontSize: 24,
-                    color: Colors.white,
+                    color: Colors.orange,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'HelveticaNeue',
                   ),
                 ),
               ),
             ]),
-        actions: <Widget>[
-
-          SizedBox(width: 32),
-          Container(child: Icon(Icons.web)),
-          SizedBox(width: 32),
-          Container(child: Icon(Icons.account_circle)),
-          SizedBox(width: 32),
-          Container(
-            child: IconButton(
-              padding: EdgeInsets.all(0),
-              icon: Icon(Icons.exit_to_app),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          ),
-          SizedBox(width: 32),
-        ],
-        backgroundColor: ColorConstants.orange,
+        //actions: <Widget>[
+       // SizedBox(width: 32),
+       //   Container(child: Icon(Icons.account_circle)),
+       //   SizedBox(width: 32),
+      //    Container(
+       //     child: IconButton(
+       //       padding: EdgeInsets.all(0),
+       //       icon: Icon(Icons.exit_to_app),
+      //        onPressed: () {
+      //          Navigator.pop(context);
+       //       },
+      //      ),
+    //      ),
+    //      SizedBox(width: 32),
+   //     ],
+        backgroundColor: Colors.white,
         // automaticallyImplyLeading: false,
-      ),
+      ) : null,
       body: Row(
         children: <Widget>[
-          MediaQuery.of(context).size.width < 1300
+          MediaQuery.of(context).size.width < 1100
               ? Container()
               : Card(
                   elevation: 2.0,
@@ -87,7 +85,7 @@ class HomeScreenState extends State<HomeScreen>
                       child: listDrawerItems(false)),
                 ),
           Container(
-            width: MediaQuery.of(context).size.width < 1300
+            width: MediaQuery.of(context).size.width < 1100
                 ? MediaQuery.of(context).size.width
                 : MediaQuery.of(context).size.width - 310,
             child: TabBarView(
@@ -102,97 +100,132 @@ class HomeScreenState extends State<HomeScreen>
           )
         ],
       ),
-      drawer: Padding(
-          padding: EdgeInsets.only(top: 56),
-          child: Drawer(child: listDrawerItems(true))),
+      drawer: Drawer(child: listDrawerItems(true))
     );
   }
 
   Widget listDrawerItems(bool drawerStatus) {
     return ListView(
       children: <Widget>[
-        FlatButton(
-          color: tabController.index == 0 ? Colors.grey[100] : Colors.white,
-          //color: Colors.grey[100],
-          onPressed: () {
-            tabController.animateTo(0);
-            drawerStatus ? Navigator.pop(context) : print("");
-          },
-
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Container(
-              padding: EdgeInsets.only(top: 22, bottom: 22, right: 22),
-              child: Row(children: [
-                Icon(Icons.dashboard),
-                SizedBox(
-                  width: 8,
+        Container(
+          margin: EdgeInsets.all(10),
+          height: 50,
+          child: Row(
+            children: <Widget>[
+              Container(
+                child: CircleAvatar(
+                    radius: 50,
+                    backgroundImage: NetworkImage(
+                        'https://assets1.ignimgs.com/thumbs/userUploaded/2019/5/29/drstone-1559174341319.jpg')),
+                width: 50,
+                height: 50,
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[Text("Senku"), Text("Nome empresa")],
                 ),
-                Text(
-                  "Estatisticas",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: 'HelveticaNeue',
-                  ),
-                ),
-              ]),
-            ),
+              )
+            ],
           ),
         ),
-        FlatButton(
-          color: tabController.index == 1 ? Colors.grey[100] : Colors.white,
-          onPressed: () {
-            print(tabController.index);
-            tabController.animateTo(1);
-            drawerStatus ? Navigator.pop(context) : print("");
-          },
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Container(
-              padding: EdgeInsets.only(top: 22, bottom: 22, right: 22),
-              child: Row(children: [
-                Icon(Icons.exit_to_app),
-                SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  "Formularios",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: 'HelveticaNeue',
-                  ),
-                ),
-              ]),
-            ),
-          ),
-        ),
-        FlatButton(
-          color: tabController.index == 2 ? Colors.grey[100] : Colors.white,
-          onPressed: () {
-            tabController.animateTo(2);
-            drawerStatus ? Navigator.pop(context) : print("");
-          },
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Container(
-              padding: EdgeInsets.only(top: 22, bottom: 22, right: 22),
-              child: Row(children: [
-                Icon(Icons.category),
-                SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  "Sobre",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: 'HelveticaNeue',
-                  ),
-                ),
-              ]),
-            ),
-          ),
-        ),
+    
+    Container(width:MediaQuery.of(context).size.width,height: 1,color: Colors.grey,)
+        ,
+        drawerButton(
+            tabController: tabController,
+            context: context,
+            title: "Financeiro",
+            iconData: Icons.show_chart,
+            onPressed: () {
+              print(tabController.index);
+              tabController.animateTo(0);
+              drawerStatus ? Navigator.pop(context) : print("");
+            }),
+        drawerButton(
+            tabController: tabController,
+            context: context,
+            title: "Ordem de Serviço",
+            iconData: Icons.not_listed_location,
+            onPressed: () {
+              print(tabController.index);
+              tabController.animateTo(1);
+              drawerStatus ? Navigator.pop(context) : print("");
+            }),
+             drawerButton(
+            tabController: tabController,
+            context: context,
+            title: "Meus pedidos",
+            iconData: Icons.settings,
+            onPressed: () {
+              tabController.animateTo(2);
+              drawerStatus ? Navigator.pop(context) : print("");
+            }),
+        drawerButton(
+            tabController: tabController,
+            context: context,
+            title: "Meus dados",
+            iconData: Icons.settings,
+            onPressed: () {
+              tabController.animateTo(2);
+              drawerStatus ? Navigator.pop(context) : print("");
+            }),
+              drawerButton(
+            tabController: tabController,
+            context: context,
+            title: "Sair",
+            iconData: Icons.exit_to_app,
+            onPressed: () {
+                 Navigator.pop(context);
+            }),
       ],
+    );
+  }
+}
+
+class drawerButton extends StatelessWidget {
+  const drawerButton({
+    Key key,
+    @required this.tabController,
+    @required this.context,
+    @required this.title,
+    @required this.iconData,
+    @required this.onPressed,
+  }) : super(key: key);
+
+  final TabController tabController;
+  final BuildContext context;
+  final VoidCallback onPressed;
+  final String title;
+  final IconData iconData;
+
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+      color: tabController.index == 2 ? Colors.grey[100] : Colors.white,
+      onPressed: onPressed,
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: Container(
+          padding: EdgeInsets.only(top: 10, bottom: 10, right: 22),
+          child: Row(children: [
+            Icon(iconData),
+            SizedBox(
+              width: 8,
+            ),
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 16,
+                fontFamily: 'HelveticaNeue',
+              ),
+            ),
+          ]),
+        ),
+      ),
     );
   }
 }

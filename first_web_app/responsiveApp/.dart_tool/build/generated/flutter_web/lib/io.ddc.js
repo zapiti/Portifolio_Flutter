@@ -83,6 +83,11 @@ define(['dart_sdk'], function(dart_sdk) {
     },
     set global(_) {}
   });
+  const HttpClient_autoUncompress = dart.privateName(io, "HttpClient.autoUncompress");
+  const HttpClient_connectionTimeout = dart.privateName(io, "HttpClient.connectionTimeout");
+  const HttpClient_idleTimeout = dart.privateName(io, "HttpClient.idleTimeout");
+  const HttpClient_maxConnectionsPerHost = dart.privateName(io, "HttpClient.maxConnectionsPerHost");
+  const HttpClient_userAgent = dart.privateName(io, "HttpClient.userAgent");
   io.HttpClient = class HttpClient extends core.Object {
     get autoUncompress() {
       return this[autoUncompress];
@@ -181,11 +186,11 @@ define(['dart_sdk'], function(dart_sdk) {
     ;
   }).prototype = io.HttpClient.prototype;
   dart.addTypeTests(io.HttpClient);
-  const autoUncompress = Symbol("HttpClient.autoUncompress");
-  const connectionTimeout = Symbol("HttpClient.connectionTimeout");
-  const idleTimeout = Symbol("HttpClient.idleTimeout");
-  const maxConnectionsPerHost = Symbol("HttpClient.maxConnectionsPerHost");
-  const userAgent = Symbol("HttpClient.userAgent");
+  const autoUncompress = HttpClient_autoUncompress;
+  const connectionTimeout = HttpClient_connectionTimeout;
+  const idleTimeout = HttpClient_idleTimeout;
+  const maxConnectionsPerHost = HttpClient_maxConnectionsPerHost;
+  const userAgent = HttpClient_userAgent;
   dart.setMethodSignature(io.HttpClient, () => ({
     __proto__: dart.getMethods(io.HttpClient.__proto__),
     addCredentials: dart.fnType(dart.void, [core.Uri, core.String, io.HttpClientCredentials]),
@@ -228,6 +233,7 @@ define(['dart_sdk'], function(dart_sdk) {
   }).prototype = io.HttpClientCredentials.prototype;
   dart.addTypeTests(io.HttpClientCredentials);
   dart.setLibraryUri(io.HttpClientCredentials, "package:flutter_web/io.dart");
+  const HttpClientRequest_encoding = dart.privateName(io, "HttpClientRequest.encoding");
   io.HttpClientRequest = class HttpClientRequest extends core.Object {
     get encoding() {
       return this[encoding];
@@ -241,7 +247,7 @@ define(['dart_sdk'], function(dart_sdk) {
     ;
   }).prototype = io.HttpClientRequest.prototype;
   dart.addTypeTests(io.HttpClientRequest);
-  const encoding = Symbol("HttpClientRequest.encoding");
+  const encoding = HttpClientRequest_encoding;
   dart.setLibraryUri(io.HttpClientRequest, "package:flutter_web/io.dart");
   dart.setFieldSignature(io.HttpClientRequest, () => ({
     __proto__: dart.getFields(io.HttpClientRequest.__proto__),
@@ -340,7 +346,7 @@ define(['dart_sdk'], function(dart_sdk) {
   dart.trackLibraries("packages/flutter_web/io", {
     "package:flutter_web/io.dart": io
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["io.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;AAkBuC;IAAgB;;;;EA8CvD;;;;MAnDe,4BAAgB;YAAG;;MAed,mBAAO;YAAI,AAAiB,kCAAG;;MAM/B,mBAAO;YAAI,AAAiB,kCAAG;;MAM/B,qBAAS;YAAI,AAAiB,kCAAG;;MAMjC,qBAAS;YAAI,AAAiB,kCAAG;;MAMjC,iBAAK;YAAI,AAAiB,kCAAG;;MAM7B,qBAAS;YAAI,AAAiB,kCAAG;;MAElB,uBAAW;;;;;;AAYvB;IAAgB;;;;;EACvC;;;;;qBAK8C;AAC1C,YAAO;IACT;;;;EACF;;;;;;;;MALuB,uBAAM;;;;;;IAQtB;;;;;;IACI;;;;;;IACA;;;;;;IACL;;;;;;IACG;;;;;;mBAEC,KAAY,OAA6B;IAAc;wBAEpD,MAAU,MAAa,OAA6B;IAAc;qBAEb;IAAI;0BAG5D;IAAI;+BAEmD;IAAW;;UACzD;IAAiB;WACM,MAAU,MAAa;AAC7D,YAAO;IACT;cAEwC;AACtC,YAAO;IACT;kBAEuC;IAAI;QACN,MAAU,MAAa;AAC1D,YAAO;IACT;WAEqC;AACnC,YAAO;IACT;SAEsC,MAAU,MAAa;AAC3D,YAAO;IACT;YAEsC;AACpC,YAAO;IACT;SAGW,QAAe,MAAU,MAAa;AAC/C,YAAO;IACT;YAEyC,QAAY;AACnD,YAAO;IACT;UAEuC,MAAU,MAAa;AAC5D,YAAO;IACT;aAEuC;AACrC,YAAO;IACT;SAEsC,MAAU,MAAa;AAC3D,YAAO;IACT;YAEsC;AACpC,YAAO;IACT;QAEqC,MAAU,MAAa;AAC1D,YAAO;IACT;WAEqC;AACnC,YAAO;IACT;;;IAzEK;IACI;IACA;IACL;IACG;;EAsET;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAE6B;;;;IAGlB;;;;;;;;;;EAgBX;;;;;;;;;SAGkC;AAAS,YAAQ;IAAE;QACnC,MAAa;IAAQ;;IACvB;YAC+C;IAAI;cAC3C;IAAO;WACV,MAAa;IAAQ;cAClB;IAAO;QACb,MAAa;IAAQ;UACjB;AAAS;IAAI;;;;EACnC;;;;;;;;;;;;;;;;;;EAkBA;;;;;;EAE0B;;;;;;EAEZ;;;;;;EAEA;;;;;;EAES;;;;;;EAEH;;;;;;EAEG;;;;;;EAEA;;;0BA7JT;IACZ,WAAM;EACR","file":"io.ddc.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["io.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;AAkBuC;IAAgB;;;;EA8CvD;;;;MAnDe,4BAAgB;YAAG;;MAed,mBAAO;YAAI,AAAiB,kCAAG;;MAM/B,mBAAO;YAAI,AAAiB,kCAAG;;MAM/B,qBAAS;YAAI,AAAiB,kCAAG;;MAMjC,qBAAS;YAAI,AAAiB,kCAAG;;MAMjC,iBAAK;YAAI,AAAiB,kCAAG;;MAM7B,qBAAS;YAAI,AAAiB,kCAAG;;MAElB,uBAAW;;;;;;AAYvB;IAAgB;;;;;EACvC;;;;;qBAK8C;AAC1C,YAAO;IACT;;;;EACF;;;;;;;;MALuB,uBAAM;;;;;;;;;;;IAQtB;;;;;;IACI;;;;;;IACA;;;;;;IACL;;;;;;IACG;;;;;;mBAEC,KAAY,OAA6B;IAAc;wBAEpD,MAAU,MAAa,OAA6B;IAAc;qBAEb;IAAI;0BAG5D;IAAI;+BAEmD;IAAW;;UACzD;IAAiB;WACM,MAAU,MAAa;AAC7D,YAAO;IACT;cAEwC;AACtC,YAAO;IACT;kBAEuC;IAAI;QACN,MAAU,MAAa;AAC1D,YAAO;IACT;WAEqC;AACnC,YAAO;IACT;SAEsC,MAAU,MAAa;AAC3D,YAAO;IACT;YAEsC;AACpC,YAAO;IACT;SAGW,QAAe,MAAU,MAAa;AAC/C,YAAO;IACT;YAEyC,QAAY;AACnD,YAAO;IACT;UAEuC,MAAU,MAAa;AAC5D,YAAO;IACT;aAEuC;AACrC,YAAO;IACT;SAEsC,MAAU,MAAa;AAC3D,YAAO;IACT;YAEsC;AACpC,YAAO;IACT;QAEqC,MAAU,MAAa;AAC1D,YAAO;IACT;WAEqC;AACnC,YAAO;IACT;;;IAzEK;IACI;IACA;IACL;IACG;;EAsET;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAE6B;;;;;IAGlB;;;;;;;;;;EAgBX;;;;;;;;;SAGkC;AAAS,YAAQ;IAAE;QACnC,MAAa;IAAQ;;IACvB;YAC+C;IAAI;cAC3C;IAAO;WACV,MAAa;IAAQ;cAClB;IAAO;QACb,MAAa;IAAQ;UACjB;AAAS;IAAI;;;;EACnC;;;;;;;;;;;;;;;;;;EAkBA;;;;;;EAE0B;;;;;;EAEZ;;;;;;EAEA;;;;;;EAES;;;;;;EAEH;;;;;;EAEG;;;;;;EAEA;;;0BA7JT;AACe,IAA3B,WAAM;EACR","file":"io.ddc.js"}');
   // Exports:
   return {
     io: io

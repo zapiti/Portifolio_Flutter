@@ -25,7 +25,7 @@ define(['dart_sdk'], function(dart_sdk) {
   dart.trackLibraries("packages/vector_math/hash", {
     "package:vector_math/hash.dart": hash
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["hash.dart"],"names":[],"mappings":";;;;;;;;;;;0CAOiC;AAC7B,wBAAQ,AAAQ,OAAD,kBAAW,GAAG,SAAK,GAAU,MAAM,cAAS,CAAC,EAAI,cAAF,CAAC;EAAY;oCAG9D,MAAU;IACzB,OAAO,AAAW,YAAQ,aAAL,IAAI,iBAAG,KAAK;IACjC,OAAO,AAAW,YAAQ,aAAL,IAAI,KAAwB,CAAnB,AAAW,sBAAE,IAAI,MAAK;AACpD,UAAY,eAAL,IAAI,IAAI,AAAK,IAAD,cAAI;EACzB;kCAEgB;IACd,OAAO,AAAW,YAAQ,aAAL,IAAI,KAAwB,CAAnB,AAAW,wBAAE,IAAI,MAAK;IACpD,OAAY,cAAL,IAAI,IAAI,AAAK,IAAD,cAAI;AACvB,UAAO,AAAW,aAAQ,aAAL,IAAI,KAAwB,CAAnB,AAAW,qBAAE,IAAI,MAAK;EACtD","file":"hash.ddc.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["hash.dart"],"names":[],"mappings":";;;;;;;;;;;0CAOiC;AAC7B,wBAAQ,AAAQ,OAAD,kBAAW,GAAG,SAAK,GAAU,MAAM,cAAS,CAAC,EAAI,cAAF,CAAC;EAAY;oCAG9D,MAAU;AACS,IAAlC,OAAO,AAAW,YAAQ,aAAL,IAAI,iBAAG,KAAK;AACuB,IAAxD,OAAO,AAAW,YAAQ,aAAL,IAAI,KAAwB,CAAnB,AAAW,sBAAE,IAAI,MAAK;AACpD,UAAY,eAAL,IAAI,IAAI,AAAK,IAAD,cAAI;EACzB;kCAEgB;AACyC,IAAvD,OAAO,AAAW,YAAQ,aAAL,IAAI,KAAwB,CAAnB,AAAW,wBAAE,IAAI,MAAK;AAC1B,IAA1B,OAAY,cAAL,IAAI,IAAI,AAAK,IAAD,cAAI;AACvB,UAAO,AAAW,aAAQ,aAAL,IAAI,KAAwB,CAAnB,AAAW,qBAAE,IAAI,MAAK;EACtD","file":"hash.ddc.js"}');
   // Exports:
   return {
     hash: hash

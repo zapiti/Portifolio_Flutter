@@ -15,11 +15,11 @@ define(['dart_sdk', 'packages/flutter_web/animation'], function(dart_sdk, packag
     get C2() {
       return C2 = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        parameterLocations: null,
-        name: "builder",
-        column: 7,
-        line: 31,
-        file: null
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 7,
+        [_Location_line]: 31,
+        [_Location_file]: null
       });
     },
     get C1() {
@@ -28,17 +28,25 @@ define(['dart_sdk', 'packages/flutter_web/animation'], function(dart_sdk, packag
     get C0() {
       return C0 = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        parameterLocations: C1 || CT.C1,
-        name: null,
-        column: 12,
-        line: 30,
-        file: "org-dartlang-app:///packages/myportfolio/responsive_widget.dart"
+        [_Location_parameterLocations]: C1 || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 30,
+        [_Location_file]: "org-dartlang-app:///packages/myportfolio/responsive_widget.dart"
       });
     }
   });
+  const _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  const _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  const _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  const _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  const _Location_file = dart.privateName(widget_inspector, "_Location.file");
   let C2;
   let C1;
   let C0;
+  const ResponsiveWidget_largeScreen = dart.privateName(responsive_widget, "ResponsiveWidget.largeScreen");
+  const ResponsiveWidget_mediumScreen = dart.privateName(responsive_widget, "ResponsiveWidget.mediumScreen");
+  const ResponsiveWidget_smallScreen = dart.privateName(responsive_widget, "ResponsiveWidget.smallScreen");
   responsive_widget.ResponsiveWidget = class ResponsiveWidget extends framework.StatelessWidget {
     get largeScreen() {
       return this[largeScreen$];
@@ -87,17 +95,17 @@ define(['dart_sdk', 'packages/flutter_web/animation'], function(dart_sdk, packag
     let largeScreen = opts && 'largeScreen' in opts ? opts.largeScreen : null;
     let mediumScreen = opts && 'mediumScreen' in opts ? opts.mediumScreen : null;
     let smallScreen = opts && 'smallScreen' in opts ? opts.smallScreen : null;
-    let $creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
     this[largeScreen$] = largeScreen;
     this[mediumScreen$] = mediumScreen;
     this[smallScreen$] = smallScreen;
-    responsive_widget.ResponsiveWidget.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $creationLocationd_0dea112b090073317d4});
+    responsive_widget.ResponsiveWidget.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
   }).prototype = responsive_widget.ResponsiveWidget.prototype;
   dart.addTypeTests(responsive_widget.ResponsiveWidget);
-  const largeScreen$ = Symbol("ResponsiveWidget.largeScreen");
-  const mediumScreen$ = Symbol("ResponsiveWidget.mediumScreen");
-  const smallScreen$ = Symbol("ResponsiveWidget.smallScreen");
+  const largeScreen$ = ResponsiveWidget_largeScreen;
+  const mediumScreen$ = ResponsiveWidget_mediumScreen;
+  const smallScreen$ = ResponsiveWidget_smallScreen;
   dart.setMethodSignature(responsive_widget.ResponsiveWidget, () => ({
     __proto__: dart.getMethods(responsive_widget.ResponsiveWidget.__proto__),
     build: dart.fnType(framework.Widget, [framework.BuildContext])
@@ -112,7 +120,7 @@ define(['dart_sdk', 'packages/flutter_web/animation'], function(dart_sdk, packag
   dart.trackLibraries("packages/myportfolio/responsive_widget", {
     "package:myportfolio/responsive_widget.dart": responsive_widget
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["responsive_widget.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAGe;;;;;;IACC;;;;;;IACD;;;;;;yBAS0B;AACrC,YAAyC,cAAvB,AAAY,AAAK,0BAAd,OAAO,gBAAe;IAC7C;yBAEuC;AACrC,YAAyC,cAAvB,AAAY,AAAK,0BAAd,OAAO,gBAAe;IAC7C;0BAEwC;AACtC,YAAyC,AAAM,cAA7B,AAAY,AAAK,0BAAd,OAAO,gBAAe,OACL,aAAvB,AAAY,AAAK,0BAAd,OAAO,gBAAe;IAC1C;UAG0B;AACxB,YAAO,gDACI,SAAC,SAAS;;AACjB,cAAyB,aAArB,AAAY,WAAD,aAAY;AACzB,kBAAO;gBACF,KAAyB,aAArB,AAAY,WAAD,aAAY,QAA6B,aAArB,AAAY,WAAD,aAAY;AAC/D,iBAAO;yBAAa,OAAG;;AAEvB,kBAAO;0BAAY,OAAG;;;IAI9B;;;QAhCS;QACU;QACV;QACA;;IAFU;IACV;IACA;AACH,sEAAW,GAAG;;EAAC","file":"responsive_widget.ddc.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["responsive_widget.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAGe;;;;;;IACC;;;;;;IACD;;;;;;yBAS0B;AACrC,YAAyC,cAAvB,AAAY,AAAK,0BAAd,OAAO,gBAAe;IAC7C;yBAEuC;AACrC,YAAyC,cAAvB,AAAY,AAAK,0BAAd,OAAO,gBAAe;IAC7C;0BAEwC;AACtC,YAAyC,AAAM,cAA7B,AAAY,AAAK,0BAAd,OAAO,gBAAe,OACL,aAAvB,AAAY,AAAK,0BAAd,OAAO,gBAAe;IAC1C;UAG0B;AACxB,YAAO,gDACI,SAAC,SAAS;;AACjB,cAAyB,aAArB,AAAY,WAAD,aAAY;AACzB,kBAAO;gBACF,KAAyB,aAArB,AAAY,WAAD,aAAY,QAA6B,aAArB,AAAY,WAAD,aAAY;AAC/D,iBAAO;gCAAgB;;AAEvB,kBAAO;iCAAe;;;IAI9B;;;QAhCS;QACU;QACV;QACA;;IAFU;IACV;IACA;AACH,sEAAW,GAAG;;EAAC","file":"responsive_widget.ddc.js"}');
   // Exports:
   return {
     responsive_widget: responsive_widget
