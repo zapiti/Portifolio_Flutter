@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_definitive/screens/home/home_screen.dart';
@@ -8,12 +6,14 @@ import 'package:flutter_web_definitive/utils/color_constants.dart';
 class Login extends StatefulWidget {
   Login({Key key, this.title}) : super(key: key);
   final String title;
+
   @override
   _LoginState createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
   bool isChecked = false;
+
   @override
   void initState() {
     super.initState();
@@ -22,25 +22,29 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     final email = Container(
-        margin:EdgeInsets.only(right: 20,left: 20),
-        child:TextField(
+        margin: EdgeInsets.only(right: 20, left: 20),
+        child: TextField(
           maxLines: 1,
           decoration: InputDecoration(
-              hintText: "Usuario", border: OutlineInputBorder(), labelText: "Usuario"),
+              hintText: "Usuario",
+              border: OutlineInputBorder(),
+              labelText: "Usuario"),
         ));
-;
+    ;
 
     final password = Container(
-      margin:EdgeInsets.only(right: 20,left: 20),
-      child:TextField(
-      maxLines: 1,
-      decoration: InputDecoration(
-          hintText: "Senha", border: OutlineInputBorder(), labelText: "Senha"),
-    ));
+        margin: EdgeInsets.only(right: 20, left: 20),
+        child: TextField(
+          maxLines: 1,
+          decoration: InputDecoration(
+              hintText: "Senha",
+              border: OutlineInputBorder(),
+              labelText: "Senha"),
+        ));
 
     final loginButton = Container(
-       margin:EdgeInsets.only(right: 20,left: 20),
-       width: MediaQuery.of(context).size.width ,
+      margin: EdgeInsets.only(right: 20, left: 20),
+      width: MediaQuery.of(context).size.width,
       child: RaisedButton(
         onPressed: () {
           Navigator.push(
@@ -89,50 +93,47 @@ class _LoginState extends State<Login> {
             width: widthLoginContainer(context),
             child: Card(
                 elevation: 2.0,
-                
                 child: Row(
                   children: <Widget>[
                     Container(
                       width: widthLoginSpace(context),
                       color: Colors.white,
                     ),
-
-                 
-              
                     Expanded(
-                    
-                      child:    Container(
-                      margin: EdgeInsets.all(20),
-                      child: Column(
-                        
-                        children: <Widget>[
-                          Center(
-                            child: CircleAvatar(
-                                radius: 50,
-                                backgroundImage: NetworkImage(
-                                    'https://assets1.ignimgs.com/thumbs/userUploaded/2019/5/29/drstone-1559174341319.jpg')),
+                      child: Container(
+                        margin: EdgeInsets.all(20),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+//                          Center(
+//                            child: CircleAvatar(
+//                                radius: 50,
+//                                backgroundImage: NetworkImage(
+//                                    'https://assets1.ignimgs.com/thumbs/userUploaded/2019/5/29/drstone-1559174341319.jpg')),
+//                          ),
+//                          SizedBox(height: 8.0),
+//                          Center(
+//                              child: Text(
+//                            "Doctor stone",
+//                            style: TextStyle(
+//                              fontSize: 28,
+//                              fontWeight: FontWeight.bold,
+//                            ),
+//                          )),
+                              SizedBox(height: 20.0),
+                              email,
+                              SizedBox(height: 8.0),
+                              password,
+                              SizedBox(height: 24.0),
+
+                              loginButton,
+                              forgotLabel,
+                            ],
                           ),
-                          SizedBox(height: 8.0),
-                          Center(
-                              child: Text(
-                            "Doctor stone",
-                            style: TextStyle(
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )),
-                          SizedBox(height: 20.0),
-                          email,
-                          SizedBox(height: 8.0),
-                          password,
-                          SizedBox(height: 24.0),
-                       
-                    
-                          loginButton,
-                          forgotLabel,
-                        ],
+                        ),
                       ),
-                    )      ,),
+                    )
                   ],
                 )),
           )),
@@ -142,12 +143,22 @@ class _LoginState extends State<Login> {
   }
 }
 
-double heightLoginContainer( BuildContext context){
- return MediaQuery.of(context).size.height / 1.2;
+double heightLoginContainer(BuildContext context) {
+  return MediaQuery.of(context).size.height > 1000
+      ? MediaQuery.of(context).size.height / 1.8
+      : MediaQuery.of(context).size.height / 1.5;
 }
-double widthLoginContainer(BuildContext context){
- return  MediaQuery.of(context).size.width > 1000 ?MediaQuery.of(context).size.width / 1.8  : MediaQuery.of(context).size.width / 1.2 ;
+
+double widthLoginContainer(BuildContext context) {
+  return MediaQuery.of(context).size.width > 1000
+      ? MediaQuery.of(context).size.width / 1.8
+      : MediaQuery.of(context).size.width / 1.2;
 }
-double widthLoginSpace(BuildContext context){
- return  MediaQuery.of(context).size.width < 700 ? 0 :MediaQuery.of(context).size.width < 1000 ? MediaQuery.of(context).size.width / 4 : MediaQuery.of(context).size.width / 5;
+
+double widthLoginSpace(BuildContext context) {
+  return MediaQuery.of(context).size.width < 700
+      ? 0
+      : MediaQuery.of(context).size.width < 1000
+          ? MediaQuery.of(context).size.width / 4
+          : MediaQuery.of(context).size.width / 5;
 }

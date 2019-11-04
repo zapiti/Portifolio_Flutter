@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_definitive/models/user.dart';
@@ -14,7 +11,6 @@ class FormMaterial extends StatefulWidget {
 class _FormMaterialState extends State<FormMaterial> {
   final _formKey = GlobalKey<FormState>();
   final _user = User();
-  
 
   @override
   Widget build(BuildContext context) {
