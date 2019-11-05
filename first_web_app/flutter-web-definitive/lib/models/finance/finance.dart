@@ -1,5 +1,5 @@
+enum FinanceStatus { PAGO, EM_ABERTO, VENCIDO }
 
-enum FinanceStatus{PAGO,EM_ABERTO,VENCIDO}
 class Finance {
   final int fatura;
   final String dataVenc;
@@ -9,6 +9,12 @@ class Finance {
   final int id;
   final String contrato;
 
-  Finance({this.fatura, this.dataVenc, this.valores,this.natureza ,this.status, this.id, this.contrato});
-
+  Finance(
+      {this.fatura,
+      this.dataVenc,
+      this.valores,
+      this.natureza,
+      this.status,
+      this.id,
+      this.contrato});
 }

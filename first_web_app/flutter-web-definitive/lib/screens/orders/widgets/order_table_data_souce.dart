@@ -26,10 +26,10 @@ class OrderTableDataSource extends DataTableSource {
                 color: _orders[index].status == OrderStatus.APROVADO
                     ? Colors.green
                     : _orders[index].status == OrderStatus.PENDENTE
-                    ? Colors.yellow
-                    : _orders[index].status == OrderStatus.ENTREGUE
-                    ? Colors.grey
-                    : Colors.blue,
+                        ? Colors.yellow
+                        : _orders[index].status == OrderStatus.ENTREGUE
+                            ? Colors.grey
+                            : Colors.blue,
                 shape: BoxShape.circle,
               ),
             ),

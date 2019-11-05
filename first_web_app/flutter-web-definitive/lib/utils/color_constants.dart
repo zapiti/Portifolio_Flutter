@@ -1,9 +1,9 @@
-
 import 'dart:ui';
 
 class ColorConstants {
   static Color orange = HexColor("c62828");
 }
+
 class HexColor extends Color {
   static int _getColorFromHex(String hexColor) {
     hexColor = hexColor.toUpperCase().replaceAll("#", "");

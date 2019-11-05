@@ -9,14 +9,23 @@ class HomeBloc {
 
   Sink<Home> get homeValue => _homeInfo.sink;
 
-  getHome() {
+  getHome() async {
     var value = Home(
         name: "Carlos de Oliveira Peres",
         url:
             'https://assets1.ignimgs.com/thumbs/userUploaded/2019/5/29/drstone-1559174341319.jpg',
         employers: ["Empresa1", "Empresa2", "Empresa3", "Empresa4"],
         selectedEmployer: "Empresa1");
-    homeValue.add(value);
+
+    await Future.delayed(Duration(seconds: 1), () => homeValue.add(value));
+  }
+
+  setPageActual(HomeSelected selected) {
+    homeData.firstWhere((home) {
+      home.selectedHome = selected;
+      homeValue.add(home);
+      return true;
+    });
   }
 
   @mustCallSuper

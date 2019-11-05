@@ -1,16 +1,16 @@
-
 import 'package:flutter/material.dart';
+
 class DrawerButton extends StatelessWidget {
   const DrawerButton({
     Key key,
-    @required this.tabController,
+    @required this.active,
     @required this.context,
     @required this.title,
     @required this.iconData,
     @required this.onPressed,
   }) : super(key: key);
 
-  final TabController tabController;
+  final bool active;
   final BuildContext context;
   final VoidCallback onPressed;
   final String title;
@@ -19,7 +19,7 @@ class DrawerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-      color: tabController.index == 2 ? Colors.grey[100] : Colors.white,
+      color: active ? Colors.grey[200] : Colors.transparent,
       onPressed: onPressed,
       child: Align(
         alignment: Alignment.centerLeft,

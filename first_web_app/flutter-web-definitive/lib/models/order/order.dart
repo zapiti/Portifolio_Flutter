@@ -1,4 +1,4 @@
-enum OrderStatus { PENDENTE, APROVADO,ENTREGUE,EM_TRANSPORTE }
+enum OrderStatus { PENDENTE, APROVADO, ENTREGUE, EM_TRANSPORTE }
 
 class Order {
   final int numPedido;
@@ -10,7 +10,13 @@ class Order {
   final int id;
   final String contrato;
 
-  Order({this.numPedido, this.data, this.itens, this.total, this.previsao, this.status, this.id, this.contrato});
-
-
+  Order(
+      {this.numPedido,
+      this.data,
+      this.itens,
+      this.total,
+      this.previsao,
+      this.status,
+      this.id,
+      this.contrato});
 }

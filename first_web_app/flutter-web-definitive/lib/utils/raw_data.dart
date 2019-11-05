@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 List<MaterialColor> colors = [
@@ -8,12 +6,7 @@ List<MaterialColor> colors = [
   Colors.teal,
   Colors.lightBlue,
 ];
-List<String> newTexts = [
-  "Solicitacoes!",
-  "Tarefas!",
-  "Pedidos!",
-  "Mensagens!"
-];
+List<String> newTexts = ["Solicitacoes!", "Tarefas!", "Pedidos!", "Mensagens!"];
 List<String> randomNumbers = ["13", "12", "124", "13", "14"];
 List<IconData> icons = [
   Icons.menu,

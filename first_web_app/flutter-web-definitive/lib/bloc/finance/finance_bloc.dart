@@ -9,21 +9,22 @@ class FinanceBloc {
 
   Sink<List<Finance>> get financeValue => _financeInfo.sink;
 
-  getFinance() {
+  getFinance() async {
     var listFinance = List<Finance>();
     for (var i = 0; i < 30; i++) {
       var value = Finance(
           fatura: i,
           dataVenc: "${i}/10/2019",
-          valores:  (i * 354.335818),
-          natureza: i%2 == 0 ?  "Serviço" : "Produto",
+          valores: (i * 354.335818),
+          natureza: i % 2 == 0 ? "Serviço" : "Produto",
           id: 1,
-          status: i%2 == 0 ?  FinanceStatus.PAGO : FinanceStatus.EM_ABERTO,
-          contrato: i%2 == 0 ? "Batata" : "Feijao");
+          status: i % 2 == 0 ? FinanceStatus.PAGO : FinanceStatus.EM_ABERTO,
+          contrato: i % 2 == 0 ? "Batata" : "Feijao");
 
       listFinance.add(value);
     }
-    financeValue.add(listFinance);
+    await Future.delayed(
+        Duration(seconds: 3), () => financeValue.add(listFinance));
   }
 
   @mustCallSuper

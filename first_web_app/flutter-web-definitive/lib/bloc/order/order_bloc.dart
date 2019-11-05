@@ -9,7 +9,7 @@ class OrderBloc {
 
   Sink<List<Order>> get orderValue => _orderInfo.sink;
 
-  getOrders() {
+  getOrders() async {
     var listOrders = List<Order>();
     for (var i = 0; i < 30; i++) {
       var value = Order(
@@ -19,12 +19,13 @@ class OrderBloc {
           total: (i * 354.335818),
           previsao: "${i}/12/2019",
           id: 1,
-          status: i%2 == 0 ?  OrderStatus.APROVADO : OrderStatus.ENTREGUE,
-          contrato: i%2 == 0 ? "Batata" : "Feijao");
+          status: i % 2 == 0 ? OrderStatus.APROVADO : OrderStatus.ENTREGUE,
+          contrato: i % 2 == 0 ? "Batata" : "Feijao");
 
       listOrders.add(value);
     }
-    orderValue.add(listOrders);
+    await Future.delayed(
+        Duration(seconds: 3), () => orderValue.add(listOrders));
   }
 
   @mustCallSuper

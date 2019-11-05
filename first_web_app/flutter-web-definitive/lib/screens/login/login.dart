@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_definitive/screens/home/home_screen.dart';
 import 'package:flutter_web_definitive/utils/color_constants.dart';
 
-class Login extends StatefulWidget {
-  Login({Key key, this.title}) : super(key: key);
+class LoginScreeam extends StatefulWidget {
+  LoginScreeam({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _LoginState createState() => _LoginState();
+  _LoginScreeamState createState() => _LoginScreeamState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginScreeamState extends State<LoginScreeam> {
   bool isChecked = false;
 
   @override

@@ -1,11 +1,13 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_web_definitive/bloc/finance/finance_bloc.dart';
 import 'package:flutter_web_definitive/bloc/home/home_bloc.dart';
+import 'package:flutter_web_definitive/bloc/order/order_bloc.dart';
+import 'package:flutter_web_definitive/bloc/order_service/order_service_bloc.dart';
 import 'package:flutter_web_definitive/models/home/home.dart';
 import 'package:flutter_web_definitive/screens/home/widgets/drawer_button_widget.dart';
 import 'package:flutter_web_definitive/screens/home/widgets/title_widget.dart';
 
-Widget listDrawerItems(bool drawerStatus,TabController tabController) {
+Widget listDrawerItems(bool drawerStatus) {
   return StreamBuilder<Home>(
       stream: blocHome.homeData,
       builder: (BuildContext context, AsyncSnapshot<Home> snapshot) {
@@ -13,18 +15,18 @@ Widget listDrawerItems(bool drawerStatus,TabController tabController) {
           children: <Widget>[
             MediaQuery.of(context).size.width > 1100
                 ? Container(
-              height: 50,
-              child: Center(
-                child: titleWidget(),
-              ),
-            )
+                    height: 50,
+                    child: Center(
+                      child: titleWidget(),
+                    ),
+                  )
                 : SizedBox(),
             MediaQuery.of(context).size.width > 1100
                 ? Container(
-              width: MediaQuery.of(context).size.width,
-              height: 5,
-              color: Colors.orange,
-            )
+                    width: MediaQuery.of(context).size.width,
+                    height: 5,
+                    color: Colors.orange,
+                  )
                 : SizedBox(),
             Container(
               margin: EdgeInsets.only(left: 8),
@@ -33,30 +35,39 @@ Widget listDrawerItems(bool drawerStatus,TabController tabController) {
                   Container(
                     child: CircleAvatar(
                         radius: 50,
-
                         backgroundColor: Colors.transparent,
-                        backgroundImage: NetworkImage(snapshot.data?.url ?? "")),
+                        backgroundImage:
+                            NetworkImage(snapshot.data?.url ?? "")),
                     width: 50,
                     height: 50,
                   ),
                   SizedBox(
-                    width: 8,
+                    width: 20,
                   ),
+                  Container(width: 200,child:
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       SizedBox(
-                        height: 8,
+                        height: 10,
                       ),
+                    Container(
+                      height: 20,
+                      child:
                       Text(
                         snapshot.data?.name ?? "",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 18),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                      ),
+                      ),),
+                      Container(
+                        height: 30,
+                        child:
                       DropdownButton<String>(
                         underline: SizedBox(),
-                        items: (snapshot.data?.employers ?? []).map((String value) {
+                        items: (snapshot.data?.employers ?? [])
+                            .map((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -67,9 +78,11 @@ Widget listDrawerItems(bool drawerStatus,TabController tabController) {
                           snapshot.data.selectedEmployer = val;
                           blocHome.homeValue.add(snapshot.data);
                         },
-                      ),
+                      ),) ,SizedBox(
+                        height: 5,
+                      )
                     ],
-                  ),
+                  ),)
                 ],
               ),
             ),
@@ -79,61 +92,74 @@ Widget listDrawerItems(bool drawerStatus,TabController tabController) {
               color: Colors.grey[300],
             ),
             DrawerButton(
-                tabController: tabController,
+                active: snapshot.data?.selectedHome == HomeSelected.HOME,
                 context: context,
                 title: "Inicio",
                 iconData: Icons.dashboard,
                 onPressed: () {
-                  print(tabController.index);
-                  tabController.animateTo(0);
+                  clearAllBloc();
+                  blocHome.setPageActual(HomeSelected.HOME);
                   drawerStatus ? Navigator.pop(context) : print("");
                 }),
             DrawerButton(
-                tabController: tabController,
+                active: snapshot.data?.selectedHome == HomeSelected.FINANCE,
                 context: context,
                 title: "Financeiro",
                 iconData: Icons.insert_chart,
                 onPressed: () {
-                  print(tabController.index);
-                  tabController.animateTo(1);
+                  clearAllBloc();
+
+                  blocHome.setPageActual(HomeSelected.FINANCE);
                   drawerStatus ? Navigator.pop(context) : print("");
                 }),
             DrawerButton(
-                tabController: tabController,
+                active:
+                    snapshot.data?.selectedHome == HomeSelected.ORDER_SERVICE,
                 context: context,
                 title: "Ordem de Serviço",
                 iconData: Icons.content_paste,
                 onPressed: () {
-                  tabController.animateTo(2);
+                  clearAllBloc();
+                  blocHome.setPageActual(HomeSelected.ORDER_SERVICE);
                   drawerStatus ? Navigator.pop(context) : print("");
                 }),
             DrawerButton(
-                tabController: tabController,
+                active: snapshot.data?.selectedHome == HomeSelected.ORDER,
                 context: context,
                 title: "Meus pedidos",
                 iconData: Icons.add_shopping_cart,
                 onPressed: () {
-                  tabController.animateTo(3);
+                  clearAllBloc();
+                  blocHome.setPageActual(HomeSelected.ORDER);
                   drawerStatus ? Navigator.pop(context) : print("");
                 }),
             DrawerButton(
-                tabController: tabController,
+                active: snapshot.data?.selectedHome == HomeSelected.MY_DATA,
                 context: context,
                 title: "Meus dados",
                 iconData: Icons.settings,
                 onPressed: () {
-                  tabController.animateTo(4);
+                  clearAllBloc();
+                  blocHome.setPageActual(HomeSelected.MY_DATA);
                   drawerStatus ? Navigator.pop(context) : print("");
                 }),
             DrawerButton(
-                tabController: tabController,
+                active: false,
                 context: context,
                 title: "Sair",
                 iconData: Icons.exit_to_app,
                 onPressed: () {
+                  blocHome.dispose();
+                  clearAllBloc();
                   Navigator.pop(context);
                 }),
           ],
         );
       });
+}
+
+void clearAllBloc() {
+  blocFinance.dispose();
+  blocOrder.dispose();
+  blocOrderService.dispose();
 }

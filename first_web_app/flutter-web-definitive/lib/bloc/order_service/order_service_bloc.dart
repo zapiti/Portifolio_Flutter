@@ -9,7 +9,7 @@ class OrderServiceBloc {
 
   Sink<List<OrderService>> get orderValue => _orderInfo.sink;
 
-  getOrders() {
+  getOrders() async {
     var listOrders = List<OrderService>();
     for (var i = 0; i < 30; i++) {
       var value = OrderService(
@@ -30,7 +30,9 @@ class OrderServiceBloc {
 
       listOrders.add(value);
     }
-    orderValue.add(listOrders);
+
+    await Future.delayed(
+        Duration(seconds: 3), () => orderValue.add(listOrders));
   }
 
   @mustCallSuper

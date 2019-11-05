@@ -9,7 +9,6 @@ Container titleWidget() {
         fontSize: 24,
         color: Colors.orange,
         fontWeight: FontWeight.bold,
-        fontFamily: 'HelveticaNeue',
       ),
     ),
   );
