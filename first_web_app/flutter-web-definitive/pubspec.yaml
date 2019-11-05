@@ -37,7 +37,8 @@ dependencies:
  flutter_mobile_carousel: ^1.0.3
  flutter_animated_dialog: ^1.0.3
  google_maps: ">=3.0.0 <4.0.0"
- data_tables: any
+ pq_toast : any
+
 # flutter_map: "0.7.3"
 
 
