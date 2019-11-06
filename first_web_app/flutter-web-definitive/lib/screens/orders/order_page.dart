@@ -30,10 +30,10 @@ class _OrderPageState extends State<OrderPage> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         child: Container(
-            width: MediaQuery.of(context).size.width / 2,
+
             margin: EdgeInsets.only(
                 top: 20,
-                right: MediaQuery.of(context).size.width > 1300 ? 200 : 20),
+                right: MediaQuery.of(context).size.width > 1300 ? 200 : 0),
             child: StreamBuilder<List<Order>>(
                 stream: blocOrder.orderData,
                 builder: (BuildContext context,

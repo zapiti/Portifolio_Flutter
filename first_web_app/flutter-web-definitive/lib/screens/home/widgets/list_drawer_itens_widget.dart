@@ -33,56 +33,62 @@ Widget listDrawerItems(bool drawerStatus) {
               child: Row(
                 children: <Widget>[
                   Container(
-                    child: CircleAvatar(
-                        radius: 50,
-                        backgroundColor: Colors.transparent,
-                        backgroundImage:
-                            NetworkImage(snapshot.data?.url ?? "")),
+                    child: snapshot.data?.url != null
+                        ? CircleAvatar(
+                            radius: 50,
+                            backgroundColor: Colors.transparent,
+                            backgroundImage:
+                                NetworkImage(snapshot.data?.url ?? ""))
+                        : SizedBox(
+                            width: 20,
+                          ),
                     width: 50,
                     height: 50,
                   ),
                   SizedBox(
                     width: 20,
                   ),
-                  Container(width: 200,child:
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      SizedBox(
-                        height: 10,
-                      ),
-                    Container(
-                      height: 20,
-                      child:
-                      Text(
-                        snapshot.data?.name ?? "",
-                        style: TextStyle(fontSize: 18),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),),
-                      Container(
-                        height: 30,
-                        child:
-                      DropdownButton<String>(
-                        underline: SizedBox(),
-                        items: (snapshot.data?.employers ?? [])
-                            .map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        value: snapshot.data?.selectedEmployer ?? "",
-                        onChanged: (String val) {
-                          snapshot.data.selectedEmployer = val;
-                          blocHome.homeValue.add(snapshot.data);
-                        },
-                      ),) ,SizedBox(
-                        height: 5,
-                      )
-                    ],
-                  ),)
+                  Container(
+                    width: 200,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          height: 20,
+                          child: Text(
+                            snapshot.data?.name ?? "",
+                            style: TextStyle(fontSize: 18),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        Container(
+                          height: 30,
+                          child: DropdownButton<String>(
+                            underline: SizedBox(),
+                            items: (snapshot.data?.employers ?? [])
+                                .map((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                            value: snapshot.data?.selectedEmployer ?? "",
+                            onChanged: (String val) {
+                              blocHome.setEmployersActual(val);
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        )
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),

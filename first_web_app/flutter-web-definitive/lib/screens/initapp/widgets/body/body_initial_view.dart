@@ -1,9 +1,15 @@
 
 import 'package:flutter/material.dart';
 
+import 'finance_initial_body.dart';
+
 class BodyInitialView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  Container(height: 300,width:  MediaQuery.of(context).size.width,color: Colors.yellow,);
+    return  Container(
+      margin: EdgeInsets.all(10),
+    child: FinanceInitialBody(),
+
+    );
   }
 }

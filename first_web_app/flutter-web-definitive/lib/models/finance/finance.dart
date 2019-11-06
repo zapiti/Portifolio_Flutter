@@ -8,6 +8,7 @@ class Finance {
   final FinanceStatus status;
   final int id;
   final String contrato;
+  String selectedContact;
 
   Finance(
       {this.fatura,

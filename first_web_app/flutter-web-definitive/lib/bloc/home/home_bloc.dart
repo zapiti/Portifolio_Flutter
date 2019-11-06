@@ -20,6 +20,15 @@ class HomeBloc {
     await Future.delayed(Duration(seconds: 1), () => homeValue.add(value));
   }
 
+  setEmployersActual(String selected){
+    homeData.firstWhere((home) {
+      home.selectedEmployer = selected;
+      homeValue.add(home);
+      return true;
+    });
+
+  }
+
   setPageActual(HomeSelected selected) {
     homeData.firstWhere((home) {
       home.selectedHome = selected;

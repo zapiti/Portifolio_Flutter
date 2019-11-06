@@ -29,7 +29,7 @@ class InitialBloc {
 
   getBanners() async {
     var listOrders = List<BannerEntity>();
-    for (var i = 0; i < 30; i++) {
+    for (var i = 0; i < 5; i++) {
       var value = BannerEntity(
           "https://novonegocio.com.br/wp-content/uploads/2014/05/20-Produtos-Para-Vender-e-Lucrar.jpg");
       listOrders.add(value);
@@ -58,7 +58,7 @@ class InitialBloc {
 
   getCallsOS() async {
     var listOrders = List<OrderService>();
-    for (var i = 0; i < 30; i++) {
+    for (var i = 0; i < 5; i++) {
       var value = OrderService(
           os: i,
           data: "${i}/10/2019",
