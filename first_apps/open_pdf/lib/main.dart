@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
 
 void main() => runApp(MyApp());
 
@@ -119,6 +119,7 @@ class PdfViewPage extends StatefulWidget {
   final String path;
 
   const PdfViewPage({Key key, this.path}) : super(key: key);
+
   @override
   _PdfViewPageState createState() => _PdfViewPageState();
 }
@@ -163,8 +164,8 @@ class _PdfViewPageState extends State<PdfViewPage> {
           ),
           !pdfReady
               ? Center(
-            child: CircularProgressIndicator(),
-          )
+                  child: CircularProgressIndicator(),
+                )
               : Offstage()
         ],
       ),
@@ -173,23 +174,23 @@ class _PdfViewPageState extends State<PdfViewPage> {
         children: <Widget>[
           _currentPage > 0
               ? FloatingActionButton.extended(
-            backgroundColor: Colors.red,
-            label: Text("Go to ${_currentPage - 1}"),
-            onPressed: () {
-              _currentPage -= 1;
-              _pdfViewController.setPage(_currentPage);
-            },
-          )
+                  backgroundColor: Colors.red,
+                  label: Text("Go to ${_currentPage - 1}"),
+                  onPressed: () {
+                    _currentPage -= 1;
+                    _pdfViewController.setPage(_currentPage);
+                  },
+                )
               : Offstage(),
-          _currentPage+1 < _totalPages
+          _currentPage + 1 < _totalPages
               ? FloatingActionButton.extended(
-            backgroundColor: Colors.green,
-            label: Text("Go to ${_currentPage + 1}"),
-            onPressed: () {
-              _currentPage += 1;
-              _pdfViewController.setPage(_currentPage);
-            },
-          )
+                  backgroundColor: Colors.green,
+                  label: Text("Go to ${_currentPage + 1}"),
+                  onPressed: () {
+                    _currentPage += 1;
+                    _pdfViewController.setPage(_currentPage);
+                  },
+                )
               : Offstage(),
         ],
       ),
