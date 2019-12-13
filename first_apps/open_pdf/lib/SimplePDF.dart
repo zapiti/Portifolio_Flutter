@@ -6,6 +6,8 @@ import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:universal_html/html.dart' as html;
+import 'package:open_pdf/teste/fake_ui.dart'
+if (dart.library.html) 'package:open_pdf/teste/real_ui.dart' as ui;
 
 import 'PDFScreen.dart';
 
@@ -67,5 +69,23 @@ class _SimplePDFState extends State<SimplePDF> {
         ),
       ),
     );
+  }
+}
+Widget loadPDF(String url) {
+  try {
+    // ignore: undefined_prefixed_name
+    ui.platformViewRegistry.registerViewFactory(
+        'pdf',
+            (int viewId) => html.IFrameElement()
+          ..width = '640'
+          ..height = '600'
+          ..src = url
+          ..onPlaying
+          ..title = 'teste teste teste'
+          ..style.border = 'none');
+    return HtmlElementView(viewType: 'pdf');
+  } catch (e) {
+    print(e);
+    return null;
   }
 }
